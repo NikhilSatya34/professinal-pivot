@@ -1,0 +1,521 @@
+stream,department,job_role,company_level,company_name,location,required_skills
+PG,MCA,System Architect,Startup,Fractal Analytics,Hyderabad,System Design
+PG,MCA,Software Engineer,Startup,BrowserStack,Mumbai,"Java, Python"
+PG,MBA,Product Manager,Startup,Navi,Chennai,Product Strategy
+PG,MSc,Analytics Consultant,Startup,CRED,Pune,Data Analytics
+PG,MBA,Business Analyst,Startup,BrowserStack,Bengaluru,Business Analysis
+PG,MSc,Lab Scientist,Startup,Navi,Chennai,Advanced Lab Skills
+PG,MBA,Product Manager,Startup,Slice,Chennai,Product Strategy
+PG,MTech,Automation Engineer,Startup,BrowserStack,Gurgaon,Automation Tools
+PG,MTech,Design Specialist,Startup,Innovaccer,Chennai,Advanced Design
+PG,MCA,System Architect,Startup,Navi,Mumbai,System Design
+PG,MTech,Project Engineer,Startup,BrowserStack,Bengaluru,Technical Projects
+PG,MSc,Data Scientist,Startup,Postman,Gurgaon,"Python, Statistics"
+PG,MCA,Software Engineer,Startup,Navi,Bengaluru,"Java, Python"
+PG,MSc,Lab Scientist,Startup,Fractal Analytics,Bengaluru,Advanced Lab Skills
+PG,MTech,Systems Engineer,Startup,Jupiter,Chennai,System Engineering
+PG,MTech,Project Engineer,Startup,Innovaccer,Hyderabad,Technical Projects
+PG,MTech,Design Specialist,Startup,BrowserStack,Bengaluru,Advanced Design
+PG,MBA,HR Manager,Startup,Slice,Chennai,Human Resources
+PG,MSc,Lab Scientist,Startup,Jupiter,Hyderabad,Advanced Lab Skills
+PG,MCA,Cloud Engineer,Startup,CRED,Mumbai,"AWS, Azure"
+PG,MTech,Design Specialist,Startup,Razorpay,Hyderabad,Advanced Design
+PG,MBA,Marketing Manager,Startup,Zerodha,Bengaluru,Marketing Strategy
+PG,MBA,Operations Manager,Startup,CRED,Bengaluru,Operations
+PG,MBA,Operations Manager,Startup,Innovaccer,Mumbai,Operations
+PG,MBA,HR Manager,Startup,BrowserStack,Gurgaon,Human Resources
+PG,MSc,Analytics Consultant,Startup,BrowserStack,Mumbai,Data Analytics
+PG,MBA,HR Manager,Startup,Groww,Bengaluru,Human Resources
+PG,MSc,Data Scientist,Startup,Fractal Analytics,Mumbai,"Python, Statistics"
+PG,MCA,Software Engineer,Startup,Razorpay,Hyderabad,"Java, Python"
+PG,MCA,Cloud Engineer,Startup,Jupiter,Bengaluru,"AWS, Azure"
+PG,MTech,Automation Engineer,Startup,Zerodha,Gurgaon,Automation Tools
+PG,MTech,Systems Engineer,Startup,Fractal Analytics,Mumbai,System Engineering
+PG,MBA,Marketing Manager,Startup,CRED,Hyderabad,Marketing Strategy
+PG,MBA,Product Manager,Startup,CRED,Pune,Product Strategy
+PG,MBA,Business Analyst,Startup,Zerodha,Pune,Business Analysis
+PG,MCA,Cloud Engineer,Startup,Postman,Gurgaon,"AWS, Azure"
+PG,MCA,Backend Developer,Startup,Slice,Hyderabad,Spring Boot
+PG,MSc,ML Engineer,Startup,Slice,Chennai,Machine Learning
+PG,MTech,Design Specialist,Startup,Chargebee,Pune,Advanced Design
+PG,MTech,Design Specialist,Startup,BrowserStack,Bengaluru,Advanced Design
+PG,MCA,Cloud Engineer,Startup,Fractal Analytics,Chennai,"AWS, Azure"
+PG,MTech,R&D Engineer,Startup,Groww,Pune,Advanced Engineering
+PG,MBA,Operations Manager,Startup,Razorpay,Pune,Operations
+PG,MBA,Business Analyst,Startup,BrowserStack,Gurgaon,Business Analysis
+PG,MSc,Analytics Consultant,Startup,Zerodha,Mumbai,Data Analytics
+PG,MTech,Systems Engineer,Startup,Razorpay,Hyderabad,System Engineering
+PG,MBA,Operations Manager,Startup,Razorpay,Pune,Operations
+PG,MCA,DevOps Engineer,Startup,Groww,Hyderabad,"Docker, CI/CD"
+PG,MTech,Project Engineer,Startup,Slice,Pune,Technical Projects
+PG,MCA,Backend Developer,Startup,Innovaccer,Gurgaon,Spring Boot
+PG,MTech,Project Engineer,Startup,BrowserStack,Gurgaon,Technical Projects
+PG,MTech,Automation Engineer,Startup,Postman,Pune,Automation Tools
+PG,MBA,Operations Manager,Startup,Razorpay,Pune,Operations
+PG,MBA,Business Analyst,Startup,Zerodha,Mumbai,Business Analysis
+PG,MBA,Operations Manager,Startup,Navi,Mumbai,Operations
+PG,MCA,System Architect,Startup,CRED,Chennai,System Design
+PG,MSc,ML Engineer,Startup,Postman,Hyderabad,Machine Learning
+PG,MSc,ML Engineer,Startup,Zerodha,Bengaluru,Machine Learning
+PG,MSc,Data Scientist,Startup,Fractal Analytics,Pune,"Python, Statistics"
+PG,MSc,ML Engineer,Startup,BrowserStack,Gurgaon,Machine Learning
+PG,MCA,System Architect,Startup,Chargebee,Bengaluru,System Design
+PG,MTech,Automation Engineer,Startup,Slice,Mumbai,Automation Tools
+PG,MCA,DevOps Engineer,Startup,BrowserStack,Gurgaon,"Docker, CI/CD"
+PG,MTech,Systems Engineer,Startup,Zerodha,Gurgaon,System Engineering
+PG,MCA,Backend Developer,Startup,Fractal Analytics,Gurgaon,Spring Boot
+PG,MCA,Cloud Engineer,Startup,Chargebee,Hyderabad,"AWS, Azure"
+PG,MSc,Analytics Consultant,Startup,CRED,Hyderabad,Data Analytics
+PG,MCA,DevOps Engineer,Startup,Chargebee,Bengaluru,"Docker, CI/CD"
+PG,MCA,System Architect,Startup,CRED,Chennai,System Design
+PG,MTech,Automation Engineer,Startup,Postman,Bengaluru,Automation Tools
+PG,MTech,Systems Engineer,Startup,Innovaccer,Mumbai,System Engineering
+PG,MBA,Business Analyst,Startup,Innovaccer,Bengaluru,Business Analysis
+PG,MCA,Backend Developer,Startup,Groww,Gurgaon,Spring Boot
+PG,MCA,DevOps Engineer,Startup,Chargebee,Gurgaon,"Docker, CI/CD"
+PG,MTech,Project Engineer,Startup,Groww,Pune,Technical Projects
+PG,MCA,DevOps Engineer,Startup,Razorpay,Gurgaon,"Docker, CI/CD"
+PG,MTech,R&D Engineer,Startup,Slice,Mumbai,Advanced Engineering
+PG,MSc,Research Scientist,Startup,BrowserStack,Mumbai,Research Methods
+PG,MSc,Data Scientist,Startup,Groww,Pune,"Python, Statistics"
+PG,MCA,Software Engineer,Startup,Slice,Bengaluru,"Java, Python"
+PG,MBA,Operations Manager,Startup,Fractal Analytics,Gurgaon,Operations
+PG,MCA,Software Engineer,Startup,Zerodha,Chennai,"Java, Python"
+PG,MCA,System Architect,Startup,Fractal Analytics,Chennai,System Design
+PG,MBA,Marketing Manager,Startup,Groww,Gurgaon,Marketing Strategy
+PG,MTech,Automation Engineer,Startup,Navi,Chennai,Automation Tools
+PG,MSc,ML Engineer,Startup,Slice,Pune,Machine Learning
+PG,MBA,Marketing Manager,Startup,Jupiter,Mumbai,Marketing Strategy
+PG,MSc,ML Engineer,Startup,BrowserStack,Hyderabad,Machine Learning
+PG,MTech,Project Engineer,Startup,Innovaccer,Pune,Technical Projects
+PG,MCA,Cloud Engineer,Startup,Fractal Analytics,Mumbai,"AWS, Azure"
+PG,MCA,System Architect,Startup,Postman,Chennai,System Design
+PG,MBA,Operations Manager,Startup,Groww,Mumbai,Operations
+PG,MSc,Data Scientist,Startup,Razorpay,Gurgaon,"Python, Statistics"
+PG,MBA,Business Analyst,Startup,Navi,Mumbai,Business Analysis
+PG,MTech,R&D Engineer,Startup,Groww,Hyderabad,Advanced Engineering
+PG,MCA,DevOps Engineer,Startup,Postman,Chennai,"Docker, CI/CD"
+PG,MCA,DevOps Engineer,Startup,Slice,Pune,"Docker, CI/CD"
+PG,MSc,Data Scientist,Startup,Innovaccer,Hyderabad,"Python, Statistics"
+PG,MCA,System Architect,Startup,Innovaccer,Gurgaon,System Design
+PG,MTech,Systems Engineer,Startup,Navi,Bengaluru,System Engineering
+PG,MTech,R&D Engineer,Startup,Navi,Pune,Advanced Engineering
+PG,MTech,Systems Engineer,Startup,Chargebee,Pune,System Engineering
+PG,MBA,Product Manager,Startup,Razorpay,Pune,Product Strategy
+PG,MCA,System Architect,Startup,Fractal Analytics,Pune,System Design
+PG,MCA,Cloud Engineer,Startup,CRED,Bengaluru,"AWS, Azure"
+PG,MBA,Operations Manager,Startup,Groww,Gurgaon,Operations
+PG,MTech,Automation Engineer,Startup,Chargebee,Gurgaon,Automation Tools
+PG,MTech,R&D Engineer,Startup,Fractal Analytics,Chennai,Advanced Engineering
+PG,MBA,Business Analyst,Startup,BrowserStack,Bengaluru,Business Analysis
+PG,MTech,Project Engineer,Startup,Postman,Pune,Technical Projects
+PG,MBA,Product Manager,Startup,Zerodha,Bengaluru,Product Strategy
+PG,MSc,ML Engineer,Startup,Zerodha,Chennai,Machine Learning
+PG,MCA,DevOps Engineer,Startup,CRED,Gurgaon,"Docker, CI/CD"
+PG,MSc,Research Scientist,Startup,Fractal Analytics,Hyderabad,Research Methods
+PG,MTech,Automation Engineer,Startup,CRED,Chennai,Automation Tools
+PG,MTech,Systems Engineer,Startup,Chargebee,Pune,System Engineering
+PG,MBA,Product Manager,Startup,Razorpay,Chennai,Product Strategy
+PG,MCA,Cloud Engineer,Startup,CRED,Mumbai,"AWS, Azure"
+PG,MCA,Backend Developer,Startup,Innovaccer,Mumbai,Spring Boot
+PG,MTech,Project Engineer,Startup,BrowserStack,Hyderabad,Technical Projects
+PG,MBA,HR Manager,Startup,Postman,Gurgaon,Human Resources
+PG,MBA,HR Manager,Startup,Slice,Mumbai,Human Resources
+PG,MCA,System Architect,Startup,BrowserStack,Mumbai,System Design
+PG,MBA,HR Manager,Startup,Slice,Bengaluru,Human Resources
+PG,MBA,HR Manager,Startup,Chargebee,Chennai,Human Resources
+PG,MBA,Product Manager,Startup,Postman,Hyderabad,Product Strategy
+PG,MSc,Research Scientist,Startup,CRED,Hyderabad,Research Methods
+PG,MSc,Research Scientist,Startup,Jupiter,Hyderabad,Research Methods
+PG,MBA,HR Manager,Startup,Fractal Analytics,Gurgaon,Human Resources
+PG,MTech,Systems Engineer,Startup,Zerodha,Gurgaon,System Engineering
+PG,MBA,Product Manager,Startup,Zerodha,Pune,Product Strategy
+PG,MTech,Systems Engineer,Startup,Jupiter,Bengaluru,System Engineering
+PG,MSc,Analytics Consultant,Startup,Chargebee,Pune,Data Analytics
+PG,MBA,Product Manager,Startup,Innovaccer,Bengaluru,Product Strategy
+PG,MSc,Analytics Consultant,Startup,Navi,Chennai,Data Analytics
+PG,MBA,Business Analyst,Startup,Slice,Pune,Business Analysis
+PG,MBA,Operations Manager,Startup,Zerodha,Hyderabad,Operations
+PG,MCA,DevOps Engineer,Startup,Postman,Bengaluru,"Docker, CI/CD"
+PG,MTech,R&D Engineer,Startup,Postman,Mumbai,Advanced Engineering
+PG,MTech,Project Engineer,Startup,Fractal Analytics,Chennai,Technical Projects
+PG,MTech,Systems Engineer,Startup,CRED,Chennai,System Engineering
+PG,MTech,Automation Engineer,Startup,Innovaccer,Pune,Automation Tools
+PG,MTech,Project Engineer,Startup,Postman,Bengaluru,Technical Projects
+PG,MCA,DevOps Engineer,Startup,BrowserStack,Pune,"Docker, CI/CD"
+PG,MBA,Operations Manager,Startup,CRED,Mumbai,Operations
+PG,MSc,Data Scientist,Startup,Slice,Mumbai,"Python, Statistics"
+PG,MBA,Marketing Manager,Startup,Razorpay,Pune,Marketing Strategy
+PG,MBA,Marketing Manager,Startup,Chargebee,Hyderabad,Marketing Strategy
+PG,MCA,System Architect,Startup,Jupiter,Bengaluru,System Design
+PG,MCA,Software Engineer,Startup,Groww,Chennai,"Java, Python"
+PG,MCA,Backend Developer,Startup,Groww,Hyderabad,Spring Boot
+PG,MSc,Lab Scientist,Startup,CRED,Bengaluru,Advanced Lab Skills
+PG,MBA,Business Analyst,Startup,Postman,Mumbai,Business Analysis
+PG,MTech,Design Specialist,Startup,Razorpay,Gurgaon,Advanced Design
+PG,MSc,Lab Scientist,Startup,Innovaccer,Hyderabad,Advanced Lab Skills
+PG,MBA,Product Manager,Startup,Navi,Mumbai,Product Strategy
+PG,MCA,Software Engineer,Startup,Innovaccer,Pune,"Java, Python"
+PG,MBA,HR Manager,Startup,Razorpay,Bengaluru,Human Resources
+PG,MCA,Software Engineer,Startup,Zerodha,Hyderabad,"Java, Python"
+PG,MBA,Marketing Manager,Startup,Groww,Pune,Marketing Strategy
+PG,MSc,ML Engineer,Startup,Slice,Mumbai,Machine Learning
+PG,MCA,DevOps Engineer,Startup,Zerodha,Gurgaon,"Docker, CI/CD"
+PG,MCA,DevOps Engineer,Startup,Postman,Pune,"Docker, CI/CD"
+PG,MSc,Data Scientist,Startup,BrowserStack,Hyderabad,"Python, Statistics"
+PG,MTech,Automation Engineer,Startup,Postman,Gurgaon,Automation Tools
+PG,MTech,Design Specialist,Startup,Razorpay,Gurgaon,Advanced Design
+PG,MSc,Analytics Consultant,Startup,Groww,Pune,Data Analytics
+PG,MCA,Backend Developer,Startup,Razorpay,Mumbai,Spring Boot
+PG,MTech,R&D Engineer,Startup,CRED,Pune,Advanced Engineering
+PG,MTech,Design Specialist,Startup,BrowserStack,Pune,Advanced Design
+PG,MTech,Design Specialist,Startup,Navi,Chennai,Advanced Design
+PG,MCA,Cloud Engineer,Startup,Zerodha,Gurgaon,"AWS, Azure"
+PG,MCA,System Architect,Startup,Fractal Analytics,Gurgaon,System Design
+PG,MCA,DevOps Engineer,Startup,Zerodha,Hyderabad,"Docker, CI/CD"
+PG,MSc,Lab Scientist,Startup,Postman,Mumbai,Advanced Lab Skills
+PG,MTech,Project Engineer,Startup,Navi,Chennai,Technical Projects
+PG,MBA,Operations Manager,Startup,Postman,Gurgaon,Operations
+PG,MTech,Design Specialist,Startup,Postman,Mumbai,Advanced Design
+PG,MBA,Business Analyst,Startup,Postman,Hyderabad,Business Analysis
+PG,MSc,Analytics Consultant,Startup,BrowserStack,Chennai,Data Analytics
+PG,MBA,Operations Manager,Startup,Groww,Mumbai,Operations
+PG,MBA,Business Analyst,Startup,Razorpay,Gurgaon,Business Analysis
+PG,MSc,Data Scientist,Startup,Chargebee,Hyderabad,"Python, Statistics"
+PG,MCA,System Architect,Startup,Navi,Bengaluru,System Design
+PG,MTech,Design Specialist,Startup,Zerodha,Hyderabad,Advanced Design
+PG,MCA,Cloud Engineer,Startup,Zerodha,Hyderabad,"AWS, Azure"
+PG,MSc,Research Scientist,Startup,Jupiter,Bengaluru,Research Methods
+PG,MSc,Research Scientist,Startup,Razorpay,Chennai,Research Methods
+PG,MTech,Design Specialist,Startup,Fractal Analytics,Chennai,Advanced Design
+PG,MCA,Backend Developer,Startup,Jupiter,Mumbai,Spring Boot
+PG,MCA,Software Engineer,Startup,Zerodha,Pune,"Java, Python"
+PG,MTech,Systems Engineer,Startup,Jupiter,Pune,System Engineering
+PG,MCA,Backend Developer,Startup,Innovaccer,Mumbai,Spring Boot
+PG,MTech,R&D Engineer,Startup,Slice,Mumbai,Advanced Engineering
+PG,MSc,Analytics Consultant,Startup,Innovaccer,Chennai,Data Analytics
+PG,MTech,Systems Engineer,Startup,Groww,Mumbai,System Engineering
+PG,MTech,Design Specialist,Startup,Navi,Chennai,Advanced Design
+PG,MBA,Marketing Manager,Startup,Postman,Hyderabad,Marketing Strategy
+PG,MCA,Software Engineer,Startup,Slice,Pune,"Java, Python"
+PG,MSc,Data Scientist,Startup,BrowserStack,Chennai,"Python, Statistics"
+PG,MBA,Operations Manager,Startup,Zerodha,Chennai,Operations
+PG,MCA,Cloud Engineer,Startup,Fractal Analytics,Gurgaon,"AWS, Azure"
+PG,MBA,Operations Manager,Startup,Fractal Analytics,Bengaluru,Operations
+PG,MSc,Analytics Consultant,Startup,Jupiter,Chennai,Data Analytics
+PG,MSc,ML Engineer,Startup,Postman,Mumbai,Machine Learning
+PG,MBA,Operations Manager,Startup,Navi,Bengaluru,Operations
+PG,MCA,DevOps Engineer,Startup,Zerodha,Chennai,"Docker, CI/CD"
+PG,MCA,DevOps Engineer,Startup,Navi,Bengaluru,"Docker, CI/CD"
+PG,MSc,Data Scientist,Startup,Chargebee,Chennai,"Python, Statistics"
+PG,MCA,DevOps Engineer,Startup,Slice,Hyderabad,"Docker, CI/CD"
+PG,MBA,HR Manager,Startup,Razorpay,Mumbai,Human Resources
+PG,MSc,ML Engineer,Startup,Razorpay,Hyderabad,Machine Learning
+PG,MTech,Automation Engineer,Startup,Postman,Hyderabad,Automation Tools
+PG,MCA,System Architect,Startup,Razorpay,Bengaluru,System Design
+PG,MBA,HR Manager,Startup,Innovaccer,Gurgaon,Human Resources
+PG,MCA,Software Engineer,Startup,BrowserStack,Hyderabad,"Java, Python"
+PG,MBA,Product Manager,Startup,Innovaccer,Hyderabad,Product Strategy
+PG,MTech,Automation Engineer,Startup,Postman,Pune,Automation Tools
+PG,MTech,Design Specialist,Startup,Postman,Pune,Advanced Design
+PG,MTech,R&D Engineer,Startup,Zerodha,Bengaluru,Advanced Engineering
+PG,MBA,Business Analyst,Startup,Jupiter,Gurgaon,Business Analysis
+PG,MBA,Product Manager,Startup,Jupiter,Pune,Product Strategy
+PG,MCA,Cloud Engineer,Startup,Razorpay,Pune,"AWS, Azure"
+PG,MTech,Automation Engineer,Startup,Groww,Bengaluru,Automation Tools
+PG,MCA,DevOps Engineer,Startup,CRED,Hyderabad,"Docker, CI/CD"
+PG,MSc,Data Scientist,Startup,Groww,Mumbai,"Python, Statistics"
+PG,MBA,Marketing Manager,Startup,Slice,Mumbai,Marketing Strategy
+PG,MTech,R&D Engineer,Startup,BrowserStack,Bengaluru,Advanced Engineering
+PG,MTech,R&D Engineer,Startup,Postman,Hyderabad,Advanced Engineering
+PG,MCA,Cloud Engineer,Startup,Jupiter,Mumbai,"AWS, Azure"
+PG,MCA,Software Engineer,Startup,Slice,Hyderabad,"Java, Python"
+PG,MBA,Marketing Manager,Startup,Jupiter,Gurgaon,Marketing Strategy
+PG,MBA,Product Manager,Startup,Innovaccer,Gurgaon,Product Strategy
+PG,MCA,Cloud Engineer,Startup,Jupiter,Pune,"AWS, Azure"
+PG,MCA,Software Engineer,Startup,Postman,Bengaluru,"Java, Python"
+PG,MSc,Analytics Consultant,Startup,Zerodha,Hyderabad,Data Analytics
+PG,MTech,Design Specialist,Startup,Fractal Analytics,Pune,Advanced Design
+PG,MTech,Automation Engineer,Startup,BrowserStack,Chennai,Automation Tools
+PG,MBA,Marketing Manager,Startup,Zerodha,Mumbai,Marketing Strategy
+PG,MSc,Lab Scientist,Startup,Razorpay,Hyderabad,Advanced Lab Skills
+PG,MTech,Project Engineer,Startup,Zerodha,Hyderabad,Technical Projects
+PG,MCA,Software Engineer,Startup,Zerodha,Pune,"Java, Python"
+PG,MBA,Business Analyst,Startup,CRED,Bengaluru,Business Analysis
+PG,MCA,DevOps Engineer,Startup,Groww,Bengaluru,"Docker, CI/CD"
+PG,MCA,Backend Developer,Startup,Postman,Bengaluru,Spring Boot
+PG,MCA,System Architect,Startup,CRED,Pune,System Design
+PG,MBA,Product Manager,Startup,Postman,Gurgaon,Product Strategy
+PG,MBA,Marketing Manager,Startup,CRED,Mumbai,Marketing Strategy
+PG,MCA,Cloud Engineer,Startup,Fractal Analytics,Pune,"AWS, Azure"
+PG,MBA,Marketing Manager,Startup,Razorpay,Mumbai,Marketing Strategy
+PG,MSc,Research Scientist,Startup,Slice,Mumbai,Research Methods
+PG,MCA,Software Engineer,Startup,Postman,Chennai,"Java, Python"
+PG,MBA,Product Manager,Startup,Chargebee,Pune,Product Strategy
+PG,MSc,Analytics Consultant,Startup,Jupiter,Pune,Data Analytics
+PG,MCA,DevOps Engineer,Startup,Groww,Mumbai,"Docker, CI/CD"
+PG,MTech,R&D Engineer,Startup,Innovaccer,Pune,Advanced Engineering
+PG,MSc,Analytics Consultant,Startup,Postman,Hyderabad,Data Analytics
+PG,MBA,HR Manager,Startup,Navi,Chennai,Human Resources
+PG,MCA,Cloud Engineer,Startup,Postman,Pune,"AWS, Azure"
+PG,MSc,ML Engineer,Startup,Fractal Analytics,Chennai,Machine Learning
+PG,MBA,Operations Manager,Startup,Fractal Analytics,Hyderabad,Operations
+PG,MBA,Operations Manager,Startup,Razorpay,Bengaluru,Operations
+PG,MTech,Systems Engineer,Startup,Slice,Pune,System Engineering
+PG,MSc,Lab Scientist,Startup,Chargebee,Pune,Advanced Lab Skills
+PG,MCA,Software Engineer,Startup,Innovaccer,Bengaluru,"Java, Python"
+PG,MCA,Cloud Engineer,Startup,Innovaccer,Pune,"AWS, Azure"
+PG,MCA,Backend Developer,Startup,Slice,Pune,Spring Boot
+PG,MCA,Backend Developer,Startup,Groww,Bengaluru,Spring Boot
+PG,MSc,Data Scientist,Startup,Innovaccer,Pune,"Python, Statistics"
+PG,MSc,ML Engineer,Startup,Navi,Gurgaon,Machine Learning
+PG,MCA,DevOps Engineer,Startup,Fractal Analytics,Bengaluru,"Docker, CI/CD"
+PG,MTech,R&D Engineer,Startup,Postman,Hyderabad,Advanced Engineering
+PG,MSc,Lab Scientist,Startup,Razorpay,Pune,Advanced Lab Skills
+PG,MSc,Research Scientist,Startup,Razorpay,Gurgaon,Research Methods
+PG,MTech,Automation Engineer,Startup,CRED,Chennai,Automation Tools
+PG,MBA,HR Manager,Startup,BrowserStack,Pune,Human Resources
+PG,MTech,Systems Engineer,Startup,Slice,Hyderabad,System Engineering
+PG,MCA,System Architect,Startup,Postman,Hyderabad,System Design
+PG,MCA,Software Engineer,Startup,Innovaccer,Gurgaon,"Java, Python"
+PG,MSc,Lab Scientist,Startup,CRED,Pune,Advanced Lab Skills
+PG,MCA,System Architect,Startup,Groww,Pune,System Design
+PG,MTech,Automation Engineer,Startup,BrowserStack,Mumbai,Automation Tools
+PG,MBA,Operations Manager,Startup,Chargebee,Gurgaon,Operations
+PG,MTech,Systems Engineer,Startup,Jupiter,Gurgaon,System Engineering
+PG,MSc,ML Engineer,Startup,Navi,Mumbai,Machine Learning
+PG,MTech,Systems Engineer,Startup,Jupiter,Pune,System Engineering
+PG,MBA,Operations Manager,Startup,BrowserStack,Mumbai,Operations
+PG,MCA,Software Engineer,Startup,Navi,Bengaluru,"Java, Python"
+PG,MCA,System Architect,Startup,Jupiter,Chennai,System Design
+PG,MTech,Automation Engineer,Startup,Razorpay,Bengaluru,Automation Tools
+PG,MSc,Research Scientist,Startup,Postman,Chennai,Research Methods
+PG,MSc,ML Engineer,Startup,Razorpay,Pune,Machine Learning
+PG,MSc,Lab Scientist,Startup,Chargebee,Mumbai,Advanced Lab Skills
+PG,MBA,HR Manager,Startup,Groww,Hyderabad,Human Resources
+PG,MCA,System Architect,Startup,Navi,Chennai,System Design
+PG,MTech,Design Specialist,Startup,Postman,Mumbai,Advanced Design
+PG,MSc,Analytics Consultant,Startup,BrowserStack,Gurgaon,Data Analytics
+PG,MTech,R&D Engineer,Startup,Navi,Chennai,Advanced Engineering
+PG,MCA,Backend Developer,Startup,CRED,Hyderabad,Spring Boot
+PG,MBA,Product Manager,Startup,CRED,Mumbai,Product Strategy
+PG,MBA,Business Analyst,Mid,Zoho,Pune,Business Analysis
+PG,MTech,Project Engineer,Mid,Cyient,Mumbai,Technical Projects
+PG,MSc,ML Engineer,Mid,Ramco Systems,Mumbai,Machine Learning
+PG,MTech,R&D Engineer,Mid,Happiest Minds,Chennai,Advanced Engineering
+PG,MTech,R&D Engineer,Mid,Ramco Systems,Chennai,Advanced Engineering
+PG,MCA,DevOps Engineer,Mid,Ramco Systems,Gurgaon,"Docker, CI/CD"
+PG,MCA,DevOps Engineer,Mid,KPIT,Mumbai,"Docker, CI/CD"
+PG,MTech,R&D Engineer,Mid,KPIT,Bengaluru,Advanced Engineering
+PG,MSc,ML Engineer,Mid,Ramco Systems,Mumbai,Machine Learning
+PG,MTech,Systems Engineer,Mid,KPIT,Gurgaon,System Engineering
+PG,MSc,Data Scientist,Mid,Ramco Systems,Pune,"Python, Statistics"
+PG,MSc,Research Scientist,Mid,Freshworks,Bengaluru,Research Methods
+PG,MTech,Automation Engineer,Mid,Ramco Systems,Chennai,Automation Tools
+PG,MBA,Operations Manager,Mid,Cyient,Bengaluru,Operations
+PG,MCA,Cloud Engineer,Mid,Freshworks,Chennai,"AWS, Azure"
+PG,MSc,Data Scientist,Mid,KPIT,Mumbai,"Python, Statistics"
+PG,MBA,Marketing Manager,Mid,Cyient,Hyderabad,Marketing Strategy
+PG,MSc,Data Scientist,Mid,Freshworks,Gurgaon,"Python, Statistics"
+PG,MBA,Marketing Manager,Mid,Ramco Systems,Chennai,Marketing Strategy
+PG,MCA,DevOps Engineer,Mid,KPIT,Chennai,"Docker, CI/CD"
+PG,MSc,Analytics Consultant,Mid,Persistent,Mumbai,Data Analytics
+PG,MSc,ML Engineer,Mid,LTIMindtree,Pune,Machine Learning
+PG,MCA,System Architect,Mid,Cyient,Pune,System Design
+PG,MCA,Cloud Engineer,Mid,KPIT,Bengaluru,"AWS, Azure"
+PG,MCA,Backend Developer,Mid,Freshworks,Mumbai,Spring Boot
+PG,MCA,Software Engineer,Mid,Freshworks,Pune,"Java, Python"
+PG,MTech,Project Engineer,Mid,Happiest Minds,Bengaluru,Technical Projects
+PG,MTech,Design Specialist,Mid,Freshworks,Chennai,Advanced Design
+PG,MCA,System Architect,Mid,Zoho,Hyderabad,System Design
+PG,MTech,Systems Engineer,Mid,Zoho,Bengaluru,System Engineering
+PG,MCA,Cloud Engineer,Mid,LTIMindtree,Gurgaon,"AWS, Azure"
+PG,MBA,Marketing Manager,Mid,LTIMindtree,Bengaluru,Marketing Strategy
+PG,MCA,Cloud Engineer,Mid,Zoho,Gurgaon,"AWS, Azure"
+PG,MBA,Business Analyst,Mid,LTIMindtree,Bengaluru,Business Analysis
+PG,MCA,DevOps Engineer,Mid,Cyient,Bengaluru,"Docker, CI/CD"
+PG,MSc,Research Scientist,Mid,Cyient,Chennai,Research Methods
+PG,MBA,Marketing Manager,Mid,Happiest Minds,Chennai,Marketing Strategy
+PG,MBA,HR Manager,Mid,Happiest Minds,Bengaluru,Human Resources
+PG,MBA,Operations Manager,Mid,Happiest Minds,Hyderabad,Operations
+PG,MTech,Project Engineer,Mid,KPIT,Bengaluru,Technical Projects
+PG,MTech,Automation Engineer,Mid,Cyient,Hyderabad,Automation Tools
+PG,MTech,Project Engineer,Mid,Freshworks,Gurgaon,Technical Projects
+PG,MBA,Operations Manager,Mid,LTIMindtree,Mumbai,Operations
+PG,MTech,R&D Engineer,Mid,KPIT,Hyderabad,Advanced Engineering
+PG,MCA,DevOps Engineer,Mid,Happiest Minds,Gurgaon,"Docker, CI/CD"
+PG,MCA,System Architect,Mid,Zoho,Gurgaon,System Design
+PG,MTech,Project Engineer,Mid,Zoho,Pune,Technical Projects
+PG,MTech,Design Specialist,Mid,Zoho,Chennai,Advanced Design
+PG,MBA,Marketing Manager,Mid,Cyient,Gurgaon,Marketing Strategy
+PG,MBA,Marketing Manager,Mid,Ramco Systems,Bengaluru,Marketing Strategy
+PG,MBA,Business Analyst,Mid,KPIT,Pune,Business Analysis
+PG,MSc,Analytics Consultant,Mid,KPIT,Pune,Data Analytics
+PG,MTech,R&D Engineer,Mid,Freshworks,Gurgaon,Advanced Engineering
+PG,MSc,Research Scientist,Mid,Persistent,Gurgaon,Research Methods
+PG,MCA,Software Engineer,Mid,Happiest Minds,Gurgaon,"Java, Python"
+PG,MTech,Automation Engineer,Mid,Cyient,Chennai,Automation Tools
+PG,MSc,Analytics Consultant,Mid,LTIMindtree,Pune,Data Analytics
+PG,MSc,ML Engineer,Mid,Cyient,Pune,Machine Learning
+PG,MTech,R&D Engineer,Mid,Ramco Systems,Pune,Advanced Engineering
+PG,MCA,Cloud Engineer,Mid,Cyient,Gurgaon,"AWS, Azure"
+PG,MBA,Product Manager,Mid,Freshworks,Pune,Product Strategy
+PG,MBA,HR Manager,Mid,Happiest Minds,Gurgaon,Human Resources
+PG,MSc,Lab Scientist,Mid,Persistent,Pune,Advanced Lab Skills
+PG,MBA,Business Analyst,Mid,Zoho,Mumbai,Business Analysis
+PG,MBA,Business Analyst,Mid,Cyient,Mumbai,Business Analysis
+PG,MSc,Analytics Consultant,Mid,Freshworks,Mumbai,Data Analytics
+PG,MCA,Cloud Engineer,Mid,Zoho,Bengaluru,"AWS, Azure"
+PG,MTech,Design Specialist,Mid,Ramco Systems,Pune,Advanced Design
+PG,MBA,Business Analyst,Mid,LTIMindtree,Hyderabad,Business Analysis
+PG,MCA,DevOps Engineer,Mid,LTIMindtree,Gurgaon,"Docker, CI/CD"
+PG,MBA,Product Manager,Mid,Ramco Systems,Pune,Product Strategy
+PG,MSc,Research Scientist,Mid,Cyient,Pune,Research Methods
+PG,MBA,Marketing Manager,Mid,Persistent,Pune,Marketing Strategy
+PG,MBA,Product Manager,Mid,Persistent,Gurgaon,Product Strategy
+PG,MCA,Cloud Engineer,Mid,Persistent,Chennai,"AWS, Azure"
+PG,MTech,R&D Engineer,Mid,Ramco Systems,Pune,Advanced Engineering
+PG,MTech,Project Engineer,Mid,Zoho,Gurgaon,Technical Projects
+PG,MBA,Business Analyst,Mid,Persistent,Bengaluru,Business Analysis
+PG,MTech,R&D Engineer,Mid,LTIMindtree,Bengaluru,Advanced Engineering
+PG,MSc,ML Engineer,Mid,Persistent,Chennai,Machine Learning
+PG,MBA,Product Manager,Mid,KPIT,Hyderabad,Product Strategy
+PG,MBA,HR Manager,Mid,Ramco Systems,Pune,Human Resources
+PG,MBA,Business Analyst,Mid,Persistent,Chennai,Business Analysis
+PG,MCA,Software Engineer,Mid,LTIMindtree,Chennai,"Java, Python"
+PG,MCA,Backend Developer,Mid,LTIMindtree,Mumbai,Spring Boot
+PG,MCA,Cloud Engineer,Mid,Persistent,Hyderabad,"AWS, Azure"
+PG,MBA,HR Manager,Mid,Persistent,Chennai,Human Resources
+PG,MSc,Lab Scientist,Mid,Cyient,Mumbai,Advanced Lab Skills
+PG,MBA,Product Manager,Mid,LTIMindtree,Chennai,Product Strategy
+PG,MTech,Project Engineer,Mid,LTIMindtree,Mumbai,Technical Projects
+PG,MSc,Data Scientist,Mid,Zoho,Gurgaon,"Python, Statistics"
+PG,MTech,Design Specialist,Mid,Cyient,Mumbai,Advanced Design
+PG,MCA,DevOps Engineer,Mid,Happiest Minds,Chennai,"Docker, CI/CD"
+PG,MCA,Software Engineer,Mid,Happiest Minds,Mumbai,"Java, Python"
+PG,MTech,Design Specialist,Mid,Persistent,Chennai,Advanced Design
+PG,MCA,DevOps Engineer,Mid,KPIT,Pune,"Docker, CI/CD"
+PG,MBA,Marketing Manager,Mid,Happiest Minds,Gurgaon,Marketing Strategy
+PG,MCA,System Architect,Mid,Persistent,Pune,System Design
+PG,MTech,R&D Engineer,Mid,Persistent,Mumbai,Advanced Engineering
+PG,MTech,Design Specialist,Mid,Cyient,Chennai,Advanced Design
+PG,MSc,Lab Scientist,Mid,Happiest Minds,Chennai,Advanced Lab Skills
+PG,MSc,ML Engineer,Mid,Zoho,Gurgaon,Machine Learning
+PG,MCA,Cloud Engineer,Mid,Zoho,Mumbai,"AWS, Azure"
+PG,MCA,Software Engineer,Mid,Zoho,Hyderabad,"Java, Python"
+PG,MBA,Operations Manager,Mid,Cyient,Chennai,Operations
+PG,MSc,Data Scientist,Mid,Zoho,Mumbai,"Python, Statistics"
+PG,MTech,Project Engineer,Mid,Zoho,Mumbai,Technical Projects
+PG,MSc,Lab Scientist,Mid,Freshworks,Hyderabad,Advanced Lab Skills
+PG,MCA,Software Engineer,Mid,KPIT,Gurgaon,"Java, Python"
+PG,MTech,Systems Engineer,Mid,Zoho,Mumbai,System Engineering
+PG,MSc,Lab Scientist,Mid,Freshworks,Gurgaon,Advanced Lab Skills
+PG,MBA,HR Manager,Mid,Happiest Minds,Bengaluru,Human Resources
+PG,MSc,Analytics Consultant,Mid,Zoho,Hyderabad,Data Analytics
+PG,MBA,Product Manager,Mid,Happiest Minds,Chennai,Product Strategy
+PG,MSc,Data Scientist,Mid,Cyient,Pune,"Python, Statistics"
+PG,MSc,Research Scientist,Mid,Happiest Minds,Mumbai,Research Methods
+PG,MBA,Operations Manager,Mid,Cyient,Hyderabad,Operations
+PG,MTech,Project Engineer,Mid,Zoho,Mumbai,Technical Projects
+PG,MSc,Lab Scientist,Mid,Freshworks,Mumbai,Advanced Lab Skills
+PG,MSc,Data Scientist,Mid,KPIT,Chennai,"Python, Statistics"
+PG,MBA,Operations Manager,Mid,LTIMindtree,Mumbai,Operations
+PG,MTech,R&D Engineer,Mid,Persistent,Chennai,Advanced Engineering
+PG,MSc,Research Scientist,Mid,Persistent,Chennai,Research Methods
+PG,MBA,Product Manager,Mid,Zoho,Chennai,Product Strategy
+PG,MTech,Systems Engineer,Mid,Happiest Minds,Bengaluru,System Engineering
+PG,MCA,System Architect,Mid,Persistent,Chennai,System Design
+PG,MTech,Automation Engineer,Mid,KPIT,Hyderabad,Automation Tools
+PG,MBA,Operations Manager,Mid,Zoho,Chennai,Operations
+PG,MSc,Research Scientist,Mid,Happiest Minds,Chennai,Research Methods
+PG,MSc,Lab Scientist,Mid,Freshworks,Hyderabad,Advanced Lab Skills
+PG,MSc,ML Engineer,Mid,Persistent,Hyderabad,Machine Learning
+PG,MCA,DevOps Engineer,Mid,Freshworks,Gurgaon,"Docker, CI/CD"
+PG,MSc,Lab Scientist,Mid,Zoho,Chennai,Advanced Lab Skills
+PG,MSc,Research Scientist,Mid,Cyient,Chennai,Research Methods
+PG,MBA,Product Manager,Mid,LTIMindtree,Hyderabad,Product Strategy
+PG,MTech,Automation Engineer,Mid,Ramco Systems,Chennai,Automation Tools
+PG,MCA,DevOps Engineer,Mid,KPIT,Bengaluru,"Docker, CI/CD"
+PG,MTech,Systems Engineer,Mid,Persistent,Chennai,System Engineering
+PG,MTech,Systems Engineer,Mid,Ramco Systems,Hyderabad,System Engineering
+PG,MSc,Lab Scientist,Mid,Cyient,Gurgaon,Advanced Lab Skills
+PG,MCA,Software Engineer,Mid,KPIT,Hyderabad,"Java, Python"
+PG,MCA,Backend Developer,Mid,Ramco Systems,Chennai,Spring Boot
+PG,MSc,Analytics Consultant,Mid,KPIT,Gurgaon,Data Analytics
+PG,MBA,Operations Manager,Mid,Zoho,Mumbai,Operations
+PG,MCA,Backend Developer,Mid,Freshworks,Bengaluru,Spring Boot
+PG,MBA,Product Manager,Mid,KPIT,Hyderabad,Product Strategy
+PG,MBA,Business Analyst,Mid,Ramco Systems,Pune,Business Analysis
+PG,MTech,Systems Engineer,Mid,Ramco Systems,Gurgaon,System Engineering
+PG,MTech,Design Specialist,Mid,Freshworks,Gurgaon,Advanced Design
+PG,MCA,Cloud Engineer,Mid,Freshworks,Bengaluru,"AWS, Azure"
+PG,MBA,Business Analyst,High,IBM,Pune,Business Analysis
+PG,MTech,Project Engineer,High,IBM,Bengaluru,Technical Projects
+PG,MCA,Cloud Engineer,High,Intel,Hyderabad,"AWS, Azure"
+PG,MSc,Research Scientist,High,Intel,Chennai,Research Methods
+PG,MBA,Business Analyst,High,Accenture,Hyderabad,Business Analysis
+PG,MTech,Design Specialist,High,Oracle,Mumbai,Advanced Design
+PG,MBA,HR Manager,High,Intel,Chennai,Human Resources
+PG,MBA,Operations Manager,High,Amazon,Bengaluru,Operations
+PG,MBA,Business Analyst,High,Intel,Chennai,Business Analysis
+PG,MBA,Product Manager,High,Microsoft,Bengaluru,Product Strategy
+PG,MTech,Project Engineer,High,Siemens,Bengaluru,Technical Projects
+PG,MSc,Lab Scientist,High,Google,Chennai,Advanced Lab Skills
+PG,MSc,Analytics Consultant,High,Amazon,Pune,Data Analytics
+PG,MCA,DevOps Engineer,High,Amazon,Mumbai,"Docker, CI/CD"
+PG,MBA,Marketing Manager,High,Infosys,Gurgaon,Marketing Strategy
+PG,MTech,Systems Engineer,High,Amazon,Mumbai,System Engineering
+PG,MBA,Product Manager,High,Amazon,Bengaluru,Product Strategy
+PG,MTech,R&D Engineer,High,Siemens,Gurgaon,Advanced Engineering
+PG,MTech,Systems Engineer,High,Microsoft,Mumbai,System Engineering
+PG,MTech,Systems Engineer,High,Oracle,Mumbai,System Engineering
+PG,MTech,Project Engineer,High,IBM,Mumbai,Technical Projects
+PG,MSc,Lab Scientist,High,Oracle,Chennai,Advanced Lab Skills
+PG,MSc,Analytics Consultant,High,Oracle,Hyderabad,Data Analytics
+PG,MCA,Cloud Engineer,High,Amazon,Bengaluru,"AWS, Azure"
+PG,MCA,Software Engineer,High,Infosys,Mumbai,"Java, Python"
+PG,MBA,Marketing Manager,High,Siemens,Bengaluru,Marketing Strategy
+PG,MSc,ML Engineer,High,Google,Bengaluru,Machine Learning
+PG,MSc,Research Scientist,High,Microsoft,Hyderabad,Research Methods
+PG,MSc,Analytics Consultant,High,Accenture,Chennai,Data Analytics
+PG,MCA,Cloud Engineer,High,IBM,Bengaluru,"AWS, Azure"
+PG,MSc,ML Engineer,High,Intel,Bengaluru,Machine Learning
+PG,MSc,Research Scientist,High,Amazon,Mumbai,Research Methods
+PG,MBA,Marketing Manager,High,Intel,Chennai,Marketing Strategy
+PG,MTech,Project Engineer,High,Amazon,Gurgaon,Technical Projects
+PG,MBA,Operations Manager,High,Qualcomm,Chennai,Operations
+PG,MBA,Marketing Manager,High,Intel,Gurgaon,Marketing Strategy
+PG,MBA,Operations Manager,High,Amazon,Chennai,Operations
+PG,MTech,Systems Engineer,High,Microsoft,Mumbai,System Engineering
+PG,MTech,Project Engineer,High,Accenture,Chennai,Technical Projects
+PG,MTech,R&D Engineer,High,Siemens,Chennai,Advanced Engineering
+PG,MBA,HR Manager,High,Microsoft,Hyderabad,Human Resources
+PG,MSc,ML Engineer,High,Microsoft,Gurgaon,Machine Learning
+PG,MSc,Analytics Consultant,High,Oracle,Chennai,Data Analytics
+PG,MTech,R&D Engineer,High,Google,Bengaluru,Advanced Engineering
+PG,MCA,Cloud Engineer,High,Intel,Bengaluru,"AWS, Azure"
+PG,MSc,Data Scientist,High,Accenture,Chennai,"Python, Statistics"
+PG,MBA,Marketing Manager,High,Amazon,Bengaluru,Marketing Strategy
+PG,MCA,Backend Developer,High,Microsoft,Chennai,Spring Boot
+PG,MSc,Data Scientist,High,Intel,Pune,"Python, Statistics"
+PG,MCA,Backend Developer,High,Google,Pune,Spring Boot
+PG,MBA,Operations Manager,High,Accenture,Gurgaon,Operations
+PG,MSc,ML Engineer,High,Infosys,Gurgaon,Machine Learning
+PG,MBA,Product Manager,High,Microsoft,Gurgaon,Product Strategy
+PG,MTech,R&D Engineer,High,Accenture,Mumbai,Advanced Engineering
+PG,MBA,Marketing Manager,High,Siemens,Pune,Marketing Strategy
+PG,MBA,Operations Manager,High,IBM,Hyderabad,Operations
+PG,MSc,Data Scientist,High,Siemens,Hyderabad,"Python, Statistics"
+PG,MBA,Business Analyst,High,Amazon,Mumbai,Business Analysis
+PG,MBA,Marketing Manager,High,Microsoft,Gurgaon,Marketing Strategy
+PG,MBA,HR Manager,High,IBM,Chennai,Human Resources
+PG,MCA,DevOps Engineer,High,Qualcomm,Bengaluru,"Docker, CI/CD"
+PG,MBA,Product Manager,High,Amazon,Mumbai,Product Strategy
+PG,MCA,Cloud Engineer,High,Siemens,Gurgaon,"AWS, Azure"
+PG,MTech,R&D Engineer,High,IBM,Bengaluru,Advanced Engineering
+PG,MTech,Automation Engineer,High,IBM,Mumbai,Automation Tools
+PG,MCA,DevOps Engineer,High,Siemens,Gurgaon,"Docker, CI/CD"
+PG,MCA,Backend Developer,High,Google,Mumbai,Spring Boot
+PG,MTech,Design Specialist,High,Intel,Mumbai,Advanced Design
+PG,MSc,Research Scientist,High,Siemens,Hyderabad,Research Methods
+PG,MSc,Research Scientist,High,Qualcomm,Mumbai,Research Methods
