@@ -143,31 +143,79 @@ def allowed_levels(cgpa):
 
 # ---------------- CARD ----------------
 def show_card(row, tag):
-    skills = str(row.get("required_skills", "")).split(",")
+    level_colors = {
+        "High": "#22c55e",
+        "Mid": "#facc15",
+        "Low": "#38bdf8",
+        "Startup": "#a855f7"
+    }
 
-    html = f"""
-    <div class="card {row['company_level'].lower()}">
-        <h4 style="margin:0;">🏢 {row['company_name']}</h4>
+    skills = [s.strip() for s in str(row.get("required_skills", "")).split(",") if s.strip()]
 
-        <div style="margin-top:6px;">
-            <span class="badge" style="background:#16a34a;">
-                {row['company_level']}
-            </span>
-            <span class="badge" style="background:#334155;">
-                {tag}
-            </span>
+    st.markdown(
+        f"""
+        <div style="
+            background: linear-gradient(145deg, #020617, #0f172a);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.65);
+            border: 1px solid rgba(255,255,255,0.08);
+        ">
+
+            <h4 style="margin:0; color:#e5e7eb; font-size:18px;">
+                🏢 {row['company_name']}
+            </h4>
+
+            <div style="margin-top:10px;">
+                <span style="
+                    background:{level_colors[row['company_level']]};
+                    color:#020617;
+                    padding:4px 14px;
+                    border-radius:999px;
+                    font-size:12px;
+                    font-weight:700;
+                    margin-right:6px;
+                ">
+                    {row['company_level']}
+                </span>
+
+                <span style="
+                    background:#334155;
+                    color:#e5e7eb;
+                    padding:4px 14px;
+                    border-radius:999px;
+                    font-size:12px;
+                    font-weight:600;
+                ">
+                    {tag}
+                </span>
+            </div>
+
+            <p style="margin-top:10px; color:#cbd5f5; font-size:14px;">
+                📍 {row['location']}
+            </p>
+
+            <p style="
+                margin-top:14px;
+                font-weight:700;
+                color:#f8fafc;
+                font-size:14px;
+            ">
+                🧠 Required Skills
+            </p>
+
+            <div style="margin-top:6px;">
+                {"".join(
+                    f"<span style='background:#1e293b; color:#e5e7eb; padding:6px 12px; margin:4px; border-radius:14px; font-size:12px; display:inline-block;'>{skill}</span>"
+                    for skill in skills
+                )}
+            </div>
+
         </div>
-
-        <p style="margin-top:8px;">📍 {row['location']}</p>
-
-        <p style="margin-top:10px; font-weight:600;">🧠 Required Skills</p>
-        <div>
-            {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
-        </div>
-    </div>
-    """
-
-    components.html(html, height=360)
+        """,
+        unsafe_allow_html=True
+    )
 
 # ---------------- RESULTS ----------------
 if submit:
@@ -193,12 +241,12 @@ if submit:
             with cols[i % 2]:
                 show_card(r, "Best Match")
 
+    st.markdown("## 🔁 Alternate Opportunities")
     if not alt_df.empty:
-        st.subheader("🔁 Alternate Opportunities")
         cols = st.columns(2)
-        for i, (_, r) in enumerate(alt_df.drop_duplicates().iterrows()):
-            with cols[i % 2]:
-                show_card(r, "Alternate Role")
+        for i, (_, row) in enumerate(alt_df.iterrows()):
+        with cols[i % 2]:
+            show_card(row, "Alternate Role")
 
     if best_df.empty and alt_df.empty:
         st.info("No companies found for this CGPA and role.")
