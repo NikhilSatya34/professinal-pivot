@@ -153,7 +153,8 @@ def show_card(row, tag):
             {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True
+    )
 
 # ---------------- RESULTS ----------------
 if submit:
