@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import pdfplumber
 from docx import Document
+import streamlit.components.v1 as components
+
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="Career Readiness", layout="wide")
@@ -130,31 +132,31 @@ def show_card(row, tag):
         "Low": "#3b82f6",
         "Startup": "#a855f7"
     }
-
     skills = str(row.get("required_skills", "")).split(",")
 
-    st.markdown(f"""
-    <div class="card">
-        <h4 style="margin:0;">🏢 {row['company_name']}</h4>
+html = f"""
+<div class="card">
+    <h4 style="margin:0;">🏢 {row['company_name']}</h4>
 
-        <div style="margin-top:6px;">
-            <span class="badge" style="background:{colors[row['company_level']]};">
-                {row['company_level']}
-            </span>
-            <span class="badge" style="background:#334155;">
-                {tag}
-            </span>
-        </div>
-
-        <p style="margin-top:8px;">📍 {row['location']}</p>
-
-        <p style="margin-top:10px; font-weight:600;">🧠 Required Skills</p>
-        <div>
-            {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
-        </div>
+    <div style="margin-top:6px;">
+        <span class="badge" style="background:{colors[row['company_level']]};">
+            {row['company_level']}
+        </span>
+        <span class="badge" style="background:#334155;">
+            {tag}
+        </span>
     </div>
-    """, unsafe_allow_html=True
-    )
+
+    <p style="margin-top:8px;">📍 {row['location']}</p>
+
+    <p style="margin-top:10px; font-weight:600;">🧠 Required Skills</p>
+    <div>
+        {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
+    </div>
+</div>
+"""
+
+components.html(html, height=260)
 
 # ---------------- RESULTS ----------------
 if submit:
