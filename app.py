@@ -134,8 +134,8 @@ def show_card(row, tag):
     }
     skills = str(row.get("required_skills", "")).split(",")
 
-html = f"""
-<div class="card">
+    html = f"""
+    <div class="card">
     <h4 style="margin:0;">🏢 {row['company_name']}</h4>
 
     <div style="margin-top:6px;">
@@ -153,10 +153,10 @@ html = f"""
     <div>
         {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
     </div>
-</div>
-"""
+    </div>
+    """
 
-components.html(html, height=260)
+    components.html(html, height=260)
 
 # ---------------- RESULTS ----------------
 if submit:
