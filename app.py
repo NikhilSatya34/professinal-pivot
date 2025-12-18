@@ -4,25 +4,41 @@ import pdfplumber
 from docx import Document
 import streamlit.components.v1 as components
 
-
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="Career Readiness", layout="wide")
 
 # ---------------- CSS ----------------
 st.markdown("""
 <style>
+
+/* Base card */
 .card {
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(14px);
     border-radius: 18px;
     padding: 18px;
     margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-    transition: 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
 }
+
+/* Company level colors */
+.card.high {
+    background: linear-gradient(135deg, #064e3b, #022c22);
+}
+.card.mid {
+    background: linear-gradient(135deg, #78350f, #451a03);
+}
+.card.low {
+    background: linear-gradient(135deg, #1e3a8a, #020617);
+}
+.card.startup {
+    background: linear-gradient(135deg, #581c87, #2e1065);
+}
+
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.01);
 }
+
 .badge {
     padding: 6px 14px;
     border-radius: 20px;
@@ -31,15 +47,17 @@ st.markdown("""
     color: white;
     margin-right: 6px;
 }
+
 .skill {
     display: inline-block;
     padding: 4px 10px;
     margin: 4px 6px 0 0;
     font-size: 12px;
     border-radius: 14px;
-    background: #1e293b;
+    background: rgba(255,255,255,0.15);
     color: #e5e7eb;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -103,10 +121,8 @@ with c4:
 
 # ---------------- RESUME UPLOAD ----------------
 st.markdown("### 📄 Optional: Upload Your Resume")
-
 uploaded_resume = st.file_uploader("Upload PDF or DOCX", type=["pdf","docx"])
 
-resume_skills = []
 if uploaded_resume:
     text = extract_resume_text(uploaded_resume)
     resume_skills = extract_skills(text)
@@ -126,37 +142,31 @@ def allowed_levels(cgpa):
 
 # ---------------- CARD ----------------
 def show_card(row, tag):
-    colors = {
-        "High": "#22c55e",
-        "Mid": "#facc15",
-        "Low": "#3b82f6",
-        "Startup": "#a855f7"
-    }
     skills = str(row.get("required_skills", "")).split(",")
 
     html = f"""
-    <div class="card">
-    <h4 style="margin:0;">🏢 {row['company_name']}</h4>
+    <div class="card {row['company_level'].lower()}">
+        <h4 style="margin:0;">🏢 {row['company_name']}</h4>
 
-    <div style="margin-top:6px;">
-        <span class="badge" style="background:{colors[row['company_level']]};">
-            {row['company_level']}
-        </span>
-        <span class="badge" style="background:#334155;">
-            {tag}
-        </span>
-    </div>
+        <div style="margin-top:6px;">
+            <span class="badge" style="background:#16a34a;">
+                {row['company_level']}
+            </span>
+            <span class="badge" style="background:#334155;">
+                {tag}
+            </span>
+        </div>
 
-    <p style="margin-top:8px;">📍 {row['location']}</p>
+        <p style="margin-top:8px;">📍 {row['location']}</p>
 
-    <p style="margin-top:10px; font-weight:600;">🧠 Required Skills</p>
-    <div>
-        {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
-    </div>
+        <p style="margin-top:10px; font-weight:600;">🧠 Required Skills</p>
+        <div>
+            {''.join([f"<span class='skill'>{s.strip()}</span>" for s in skills if s.strip()])}
+        </div>
     </div>
     """
 
-    components.html(html, height=260)
+    components.html(html, height=270)
 
 # ---------------- RESULTS ----------------
 if submit:
@@ -194,4 +204,4 @@ if submit:
 
 # ---------------- FOOTER ----------------
 st.markdown("---")
-st.caption("🚀 Career Recommendation System | Skills-focused | Built with Streamlit")
+st.caption("🚀 Career Recommendation System | Role & Skill Focused | Built with Streamlit")
