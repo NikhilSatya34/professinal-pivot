@@ -246,7 +246,7 @@ if submit:
         cols = st.columns(2)
         for i, (_, row) in enumerate(alt_df.iterrows()):
             with cols[i % 2]:
-            show_card(row, "Alternate Role")
+                show_card(row, "Alternate Role")
 
     if best_df.empty and alt_df.empty:
         st.info("No companies found for this CGPA and role.")
