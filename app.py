@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 
 # -------------------------------------------------
@@ -183,44 +183,47 @@ else:
 
     # ---------------- CARD ----------------
     def show_card(row, tag):
-        level_colors = {
-            "High": "#22c55e",
-            "Mid": "#facc15",
-            "Low": "#38bdf8",
-            "Startup": "#a855f7"
-        }
+    level_colors = {
+        "High": "#22c55e",
+        "Mid": "#facc15",
+        "Low": "#38bdf8",
+        "Startup": "#a855f7"
+    }
 
-        required = [s.strip().lower() for s in str(row["required_skills"]).split(",") if s.strip()]
-        match = calculate_skill_match(user_skills, required)
-        gap = missing_skills(user_skills, required)
-        bar = skill_bar(match)
+    required = [s.strip().lower() for s in str(row["required_skills"]).split(",") if s.strip()]
+    match = calculate_skill_match(user_skills, required)
+    gap = missing_skills(user_skills, required)
+    bar = skill_bar(match)
 
-        html = f"""<div class="card">
-                <h4>🏢 {row['company_name']}</h4>
-    
-                <span class="badge" style="background:{level_colors[row['company_level']]}; color:black;">
-                    {row['company_level']}
-                </span>
-                <span class="badge" style="background:#334155;">{tag}</span>
-    
-                <p>📍 {row['location']}</p>
-                <p><b>🧠 Skill Match:</b> {match}%</p>
-                <pre>{bar}</pre>
-    
-                <b>🎯 Required Skills</b><br>
-                {"".join(f"<span class='skill'>{s}</span>" for s in required)}
-    
-                <br><br><b>❌ Missing Skills</b><br>
-                {"".join(f"<span class='skill' style='background:#7f1d1d;'>{s}</span>" for s in gap[:5]) or "<span class='skill'>None 🎉</span>"}
-    
-                <p><b>💡 Why this company?</b></p>
-                <ul>
-                    <li>Eligible based on CGPA</li>
-                    <li>Relevant to selected job role</li>
-                    <li>Skill compatibility: {match}%</li>
-                </ul>
-            </div>"""
-        st.markdown(html, unsafe_allow_html=True)
+    html = f"""
+    <div class="card">
+      <h4>🏢 {row['company_name']}</h4>
+
+      <span class="badge" style="background:{level_colors[row['company_level']]}; color:black;">
+        {row['company_level']}
+      </span>
+      <span class="badge" style="background:#334155;">{tag}</span>
+
+      <p>📍 {row['location']}</p>
+      <p><b>🧠 Skill Match:</b> {match}%</p>
+      <pre>{bar}</pre>
+
+      <b>🎯 Required Skills</b><br>
+      {"".join(f"<span class='skill'>{s}</span>" for s in required)}
+
+      <br><br><b>❌ Missing Skills</b><br>
+      {"".join(f"<span class='skill' style='background:#7f1d1d;'>{s}</span>" for s in gap[:5]) or "<span class='skill'>None 🎉</span>"}
+
+      <p><b>💡 Why this company?</b></p>
+      <ul>
+        <li>Eligible based on CGPA</li>
+        <li>Relevant to selected job role</li>
+        <li>Skill compatibility: {match}%</li>
+      </ul>
+    </div>
+    """
+
+    components.html(html, height=520, scrolling=False)
 
     # ---------------- RESULTS ----------------
     if submit:
@@ -235,7 +238,14 @@ else:
         base = base.sort_values("company_level")
 
         best = base[base["job_role"] == role]
-        alt = base[base["job_role"] != role]
+
+        alt = df[
+            (df["stream"] == stream) &
+            (df["department"] == department) &
+            (df["job_role"] != role) &
+            (df["company_level"].isin(allowed_levels(cgpa)))
+        ]
+
 
         st.subheader("🏆 Recommended Companies")
 
