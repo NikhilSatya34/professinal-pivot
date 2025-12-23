@@ -148,45 +148,58 @@ else:
     st.title("🎓 Professional Pivot")
     st.caption("Resume > Skills > Reality")
 
+
     # ---------------- INPUTS ----------------
     st.subheader("🔍 Student Profile")
-
-    c1, c2, c3, c4 = st.columns(4)
-
+    
+    c1, c2, c3, c4, c5 = st.columns(5)
+    
     with c1:
-        stream = st.selectbox("Stream", sorted(df["stream"].unique()))
-
+    stream = st.selectbox(
+        "Stream",
+        sorted(df["stream"].unique())
+    )
+    
     with c2:
-        department = st.selectbox(
-            "Department",
-            sorted(df[df["stream"] == stream]["department"].unique())
+    course = st.selectbox(
+        "Course",
+        sorted(
+            df[df["stream"] == stream]["course"].unique()
         )
-
+    )
+    
     with c3:
-        role = st.selectbox(
-            "Job Role",
-            sorted(
-                df[
-                    (df["stream"] == stream) &
-                    (df["department"] == department)
-                ]["job_role"].unique()
-            )
+    department = st.selectbox(
+        "Department",
+        sorted(
+            df[
+                (df["stream"] == stream) &
+                (df["course"] == course)
+            ]["department"].unique()
         )
-
+    )
+    
     with c4:
-        cgpa = st.slider("CGPA", 5.0, 10.0, 7.0, 0.1)
-
+    role = st.selectbox(
+        "Job Role",
+        sorted(
+            df[
+                (df["stream"] == stream) &
+                (df["course"] == course) &
+                (df["department"] == department)
+            ]["job_role"].unique()
+        )
+    )
+    
+    with c5:
+    cgpa = st.slider("CGPA", 5.0, 10.0, 7.0, 0.1)
+    
     resume = st.file_uploader(
-        "📄 Upload Resume (Mandatory)",
-        type=["txt", "pdf", "docx"]
+    "📄 Upload Resume (Mandatory)",
+    type=["txt", "pdf", "docx"]
     )
 
-    submit = st.button("🔎 Validate Profile")
-
-    # ---------------- RESUME CHECK ----------------
-    if submit and not resume:
-        st.error("❌ Resume upload is mandatory to continue.")
-        st.stop()
+    submit = st.button("🔍 Validate Profile")
 
     # ---------------- SKILL EXTRACTION ----------------
     user_skills = []
