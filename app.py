@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import streamlit.components.v1 as components
 
 # -------------------------------------------------
 # PAGE CONFIG
@@ -18,64 +17,48 @@ if "started" not in st.session_state:
     st.session_state.started = False
 
 # -------------------------------------------------
-# INTRO / ONBOARDING SCREEN
+# INTRO PAGE
 # -------------------------------------------------
 if not st.session_state.started:
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    st.markdown(
-        "<h1 style='text-align:center;'>🎓 Professional Pivot</h1>",
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        "<h4 style='text-align:center; color:gray;'>"
-        "Resume-driven career validation platform"
-        "</h4>",
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+    <h1 style='text-align:center;'>🎓 Professional Pivot</h1>
+    <h4 style='text-align:center; color:#94a3b8;'>
+        Resume-driven Career Reality Check
+    </h4>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
-    st.subheader("📌 Project Description")
+    st.markdown("""
+    ### 🎯 Purpose of this Website
+    **Professional Pivot** is not a normal job recommendation platform.
 
-    st.write(
-        "**Professional Pivot** is not a normal job recommendation website. "
-        "It is a **career validation platform** designed to show students "
-        "a **realistic view of their job readiness**."
-    )
-
-    st.write(
-        "The system strictly analyzes skills from the uploaded resume and "
-        "matches them with real-world job requirements across "
-        "**Engineering, Medical, Pharmacy, Science, and Management** domains "
-        "for both **UG and PG** programs."
-    )
-
-    st.write(
-        "If the resume does not match the selected stream, course, department, "
-        "or job role, the system **does not force recommendations**. "
-        "Instead, it highlights mismatches and shows only realistic options."
-    )
+    - 📄 Resume is the **primary truth source**
+    - 🧠 Skills are validated against **real job expectations**
+    - ⚠️ Weak or mismatched profiles are **not comforted**
+    - 🚀 Only realistic opportunities are shown
+    - 🔍 Helps students understand **where they actually stand**
+    """)
 
     st.info(
-        "⚠️ This platform is intentionally strict. "
-        "It reflects industry reality, not false motivation."
+        "This honesty-driven platform prepares students for "
+        "real industry standards instead of false hopes."
     )
 
-    center_col = st.columns([1, 2, 1])[1]
-    with center_col:
+    col = st.columns([1, 2, 1])[1]
+    with col:
         if st.button("🚀 Get Started", use_container_width=True):
             st.session_state.started = True
             st.rerun()
 
     st.markdown("---")
-
     st.markdown(
-        "<p style='text-align:center; color:#94a3b8; font-size:14px;'>"
+        "<p style='text-align:center; color:#94a3b8;'>"
         "Project developed by <b>B. Nikhil Satya</b> – CSD<br>"
-        "<b>25ALCSD002</b>"
-        "</p>",
+        "<b>25ALCSD002</b></p>",
         unsafe_allow_html=True
     )
 
@@ -84,14 +67,14 @@ if not st.session_state.started:
 # -------------------------------------------------
 else:
 
-    # ---------------- BACK BUTTON ----------------
-    col1, col2 = st.columns([1, 9])
-    with col1:
+    # ---------------- HEADER ----------------
+    c1, c2 = st.columns([1, 9])
+    with c1:
         if st.button("⬅ Back"):
             st.session_state.started = False
             st.rerun()
 
-    with col2:
+    with c2:
         st.markdown("""
         <h1 style="margin-bottom:0;">🎓 Professional Pivot</h1>
         <p style="color:#94a3b8;">Resume &gt; Skills &gt; Reality</p>
@@ -158,20 +141,18 @@ else:
             st.warning("⚠️ Kindly Upload the Resume")
             st.stop()
 
-        # Skill extraction
-        text = resume.read().decode(errors="ignore").lower()
-        all_skills = set(",".join(df["required_skill"].dropna()).lower().split(","))
-        user_skills = [s for s in all_skills if s.strip() and s in text]
+        resume_text = resume.read().decode(errors="ignore").lower()
 
-        def skill_match(user, required):
-            if not user or not required:
-                return 0
-            return int((len(set(user) & set(required)) / len(set(required))) * 100)
+        all_skills = set(
+            ",".join(df["required_skill"].dropna()).lower().split(",")
+        )
+        user_skills = [s.strip() for s in all_skills if s.strip() in resume_text]
 
         base = df[
             (df["stream"] == stream) &
             (df["course"] == course) &
-            (df["department"] == department)
+            (df["department"] == department) &
+            (df["job_role"] == role)
         ]
 
         st.subheader("📊 Career Reality Check")
@@ -180,13 +161,37 @@ else:
         shown = False
 
         for i, (_, row) in enumerate(base.iterrows()):
-            required = [s.strip() for s in row["required_skill"].split(",")]
-            match = skill_match(user_skills, required)
 
-            if match == 0:
-                continue
+            required = [s.strip().lower() for s in row["required_skill"].split(",")]
+
+            matched = set(required) & set(user_skills)
+            missing = set(required) - set(user_skills)
+
+            match_percent = int((len(matched) / len(required)) * 100) if required else 0
+
+            # Readiness label
+            if match_percent <= 30:
+                readiness = "❌ Not Ready"
+                prep = "4–6 months"
+            elif match_percent <= 60:
+                readiness = "⚠️ Partially Ready"
+                prep = "2–3 months"
+            elif match_percent <= 80:
+                readiness = "✅ Near Ready"
+                prep = "1–2 months"
+            else:
+                readiness = "🚀 Job Ready"
+                prep = "0–1 month"
 
             shown = True
+
+            # Skill display with ✔ ❌
+            skills_html = ""
+            for skill in required:
+                if skill in matched:
+                    skills_html += f"<span style='color:#22c55e;'>✔ {skill}</span> &nbsp; "
+                else:
+                    skills_html += f"<span style='color:#ef4444;'>❌ {skill}</span> &nbsp; "
 
             with cols[i % 2]:
                 st.markdown(f"""
@@ -195,20 +200,32 @@ else:
                     padding:18px;
                     border-radius:16px;
                     margin-bottom:20px;
-                    color:#e5e7eb;
-                    box-shadow:0 12px 30px rgba(0,0,0,0.6);
+                    box-shadow:0 14px 35px rgba(0,0,0,0.6);
                 ">
                     <h4>🏢 {row['company_name']}</h4>
-                    <p>📍 {row['location']}</p>
-                    <p><b>Level:</b> {row['company_level']}</p>
-                    <p><b>Skill Match:</b> {match}%</p>
+                    <p>📍 {row['location']} | <b>{row['company_level']}</b></p>
+
+                    <p><b>Skill Match:</b> {match_percent}%</p>
+                    <p><b>Readiness:</b> {readiness}</p>
+                    <p><b>Missing Skills:</b> {len(missing)} / {len(required)}</p>
+                    <p><b>Estimated Prep Time:</b> {prep}</p>
+
+                    <hr style="border:0.5px solid #1e293b;">
                     <b>Required Skills</b><br>
-                    {"".join(f"<span style='background:#1e293b;padding:6px 10px;border-radius:999px;margin:4px;display:inline-block;'>{s}</span>" for s in required)}
+                    {skills_html}
+
+                    <hr style="border:0.5px solid #1e293b;">
+                    <b>Why shown?</b>
+                    <ul>
+                        <li>Matches selected role</li>
+                        <li>Resume skills evaluated</li>
+                        <li>CGPA eligible</li>
+                    </ul>
                 </div>
                 """, unsafe_allow_html=True)
 
         if not shown:
             st.warning(
-                "⚠️ Your resume skills do not align with the selected role. "
+                "⚠️ Your resume skills do not align with the selected job role. "
                 "Please improve your skills or update your resume."
             )
