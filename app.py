@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import PyPDF2
+import docx
 
 # -------------------------------------------------
 # PAGE CONFIG
@@ -17,34 +19,51 @@ if "started" not in st.session_state:
     st.session_state.started = False
 
 # -------------------------------------------------
+# RESUME TEXT EXTRACTOR (PDF / DOCX / TXT)
+# -------------------------------------------------
+def extract_resume_text(file):
+    text = ""
+
+    if file.type == "application/pdf":
+        reader = PyPDF2.PdfReader(file)
+        for page in reader.pages:
+            text += page.extract_text() or ""
+
+    elif file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+        doc = docx.Document(file)
+        for para in doc.paragraphs:
+            text += para.text + " "
+
+    else:  # TXT
+        text = file.read().decode(errors="ignore")
+
+    return text.lower()
+
+# -------------------------------------------------
 # INTRO PAGE
 # -------------------------------------------------
 if not st.session_state.started:
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
+    st.markdown("<h1 style='text-align:center;'>🎓 Professional Pivot</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<h1 style='text-align:center;'>🎓 Professional Pivot</h1>",
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        "<h4 style='text-align:center;color:gray;'>Resume &gt; Skills &gt; Reality</h4>",
+        "<h4 style='text-align:center;color:#94a3b8;'>Resume → Skills → Reality</h4>",
         unsafe_allow_html=True
     )
 
     st.markdown("---")
 
-    st.write("""
-    **Professional Pivot** is a career validation platform, not a job portal.
+    st.write(
+        "**Professional Pivot** is not a normal job recommendation website. "
+        "It validates whether a student is actually ready for a selected role "
+        "by strictly analyzing resume skills against real industry requirements."
+    )
 
-    It strictly analyzes skills from your resume and compares them with
-    **real-world job requirements** across **UG & PG**, **all streams**.
-
-    If your profile is weak or mismatched, the system will not please you.
-    It will show only **realistic outcomes**.
-    """)
-
-    st.info("⚠️ Resume is the only truth source in this system.")
+    st.info(
+        "⚠️ This platform is intentionally strict. "
+        "It shows reality, not false motivation."
+    )
 
     if st.button("🚀 Get Started"):
         st.session_state.started = True
@@ -52,8 +71,8 @@ if not st.session_state.started:
 
     st.markdown(
         "<p style='text-align:center;color:#94a3b8;'>"
-        "Project developed by <b>B. Nikhil Satya</b> – CSD<br>"
-        "<b>25ALCSD002</b></p>",
+        "Project developed by <b>B. Nikhil Satya</b> – CSD | <b>25ALCSD002</b>"
+        "</p>",
         unsafe_allow_html=True
     )
 
@@ -62,20 +81,20 @@ if not st.session_state.started:
 # -------------------------------------------------
 else:
 
-    # Back button + Header
-    col1, col2 = st.columns([1, 9])
-    with col1:
+    # ---------------- BACK BUTTON + HEADER ----------------
+    c1, c2 = st.columns([1, 9])
+    with c1:
         if st.button("⬅ Back"):
             st.session_state.started = False
             st.rerun()
 
-    with col2:
+    with c2:
         st.markdown("""
         <h1 style="margin-bottom:0;">🎓 Professional Pivot</h1>
         <p style="color:#94a3b8;">Resume &gt; Skills &gt; Reality</p>
         """, unsafe_allow_html=True)
 
-    # Load data
+    # ---------------- LOAD DATA ----------------
     @st.cache_data
     def load_data():
         return pd.read_csv("new1.csv")
@@ -108,7 +127,7 @@ else:
         )
 
     with c4:
-        role = st.selectbox(
+        job_role = st.selectbox(
             "Job Role",
             sorted(
                 df[
@@ -124,7 +143,7 @@ else:
 
     resume = st.file_uploader(
         "📄 Upload Resume (Mandatory)",
-        type=["txt", "pdf", "docx"]
+        type=["pdf", "docx", "txt"]
     )
 
     submit = st.button("🔍 Validate Profile")
@@ -136,29 +155,22 @@ else:
             st.warning("⚠️ Kindly Upload the Resume")
             st.stop()
 
-            # -------- RESUME SKILL EXTRACTION (GENERIC) --------
-        resume_text = resume.read().decode(errors="ignore").lower()
-        
-        # Collect ALL skills from dataset (all domains)
-        all_skills = set()
-        
-        for skills in df["required_skill"].dropna():
-        for s in skills.lower().split(","):
-            all_skills.add(s.strip())
-        
-        # Extract only skills present in resume
-        user_skills = [skill for skill in all_skills if skill and skill in resume_text]
+        resume_text = extract_resume_text(resume)
 
-        def skill_match(required):
-            if not required:
-                return 0
-            return int((len(set(user_skills) & set(required)) / len(set(required))) * 100)
+        # User skills from resume
+        all_skills = set(
+            ",".join(df["required_skill"].dropna())
+            .lower()
+            .replace("/", ",")
+            .split(",")
+        )
+        user_skills = {s.strip() for s in all_skills if s.strip() and s in resume_text}
 
         base = df[
             (df["stream"] == stream) &
             (df["course"] == course) &
             (df["department"] == department) &
-            (df["job_role"] == role)
+            (df["job_role"] == job_role)
         ]
 
         st.subheader("📊 Career Reality Check")
@@ -168,41 +180,57 @@ else:
 
         for i, (_, row) in enumerate(base.iterrows()):
             required = [s.strip().lower() for s in row["required_skill"].split(",")]
-            match = skill_match(required)
 
-            if match == 0:
-                continue
+            matched = [s for s in required if s in user_skills]
+            missing = [s for s in required if s not in user_skills]
+
+            match_percent = int((len(matched) / len(required)) * 100) if required else 0
 
             shown = True
 
-            # ✔ ❌ Skill display
-            skills_html = ""
-            for s in required:
-                if s in user_skills:
-                    skills_html += f"<span style='color:#22c55e;'>✔ {s}</span><br>"
-                else:
-                    skills_html += f"<span style='color:#ef4444;'>❌ {s}</span><br>"
+            # Readiness label
+            if match_percent >= 80:
+                readiness = "🚀 Job Ready"
+            elif match_percent >= 50:
+                readiness = "⚠️ Partially Ready"
+            else:
+                readiness = "❌ Not Ready"
 
             with cols[i % 2]:
                 st.markdown(f"""
                 <div style="
                     background:#020617;
                     padding:18px;
-                    border-radius:16px;
+                    border-radius:18px;
                     margin-bottom:20px;
-                    box-shadow:0 12px 30px rgba(0,0,0,0.6);
+                    box-shadow:0 15px 35px rgba(0,0,0,0.6);
+                    color:#e5e7eb;
                 ">
                     <h4>🏢 {row['company_name']}</h4>
-                    <p>📍 {row['location']} | Level: {row['company_level']}</p>
-                    <p><b>Skill Match:</b> {match}%</p>
-                    <hr>
-                    <b>Required Skills Validation</b><br>
-                    {skills_html}
+                    <p>📍 {row['location']} | <b>{row['company_level']}</b></p>
+
+                    <p><b>Skill Match:</b> {match_percent}%</p>
+                    <p><b>Readiness:</b> {readiness}</p>
+
+                    <b>Required Skills</b><br>
+                    {"".join(
+                        f"<span style='background:#1e293b;padding:6px 12px;border-radius:999px;margin:4px;display:inline-block;'>"
+                        f"<span style='color:#22c55e;'>✔</span> {s}</span>"
+                        for s in matched
+                    )}
+                    {"".join(
+                        f"<span style='background:#1e293b;padding:6px 12px;border-radius:999px;margin:4px;display:inline-block;'>"
+                        f"<span style='color:#ef4444;'>❌</span> {s}</span>"
+                        for s in missing
+                    )}
+
+                    <p style="margin-top:10px;color:#94a3b8;">
+                        Missing Skills: {len(missing)} / {len(required)}
+                    </p>
                 </div>
                 """, unsafe_allow_html=True)
 
         if not shown:
             st.warning(
-                "⚠️ Your resume does not align with the selected job role. "
-                "Please improve skills or choose a realistic role."
+                "⚠️ Your resume skills do not match the selected stream / course / role."
             )
