@@ -17,15 +17,13 @@ if "started" not in st.session_state:
     st.session_state.started = False
 
 # -------------------------------------------------
-# INTRO PAGE
+# COMMON HEADER (USED IN INTRO & MAIN PAGE)
 # -------------------------------------------------
-# ---------------- INTRO PAGE ----------------
-if not st.session_state.started:
-
-    col1, col2 = st.columns([1, 7])
+def header():
+    col1, col2 = st.columns([1, 10])
 
     with col1:
-        st.image("fevicon_project.png", width=80)
+        st.image("fevicon_project.png", width=70)
 
     with col2:
         st.markdown(
@@ -40,28 +38,46 @@ if not st.session_state.started:
 
     st.markdown("---")
 
-    st.write("""
-    **Professional Pivot** is a smart career recommendation system that helps students
-    make informed and realistic career decisions. The system analyzes a student's
-    academic profile, skills, and interests to suggest suitable companies and career paths.
-    """)
+# -------------------------------------------------
+# INTRO PAGE
+# -------------------------------------------------
+if not st.session_state.started:
 
-    st.info(
-        "⚠️ Resume is the single source of truth. "
-        "If skills don’t match, the system will not force recommendations."
-    )
+    header()  # SAME POSITION AS MAIN PAGE TITLE
 
-    if st.button("🚀 Get Started", use_container_width=True):
-        st.session_state.started = True
-        st.rerun()
-
-    st.markdown("---")
     st.markdown(
-        "<p style='text-align:center;color:#94a3b8;'>"
-        "Project developed by <b>B. Nikhil Satya</b> – CSD | <b>25ALCSD002</b>"
-        "</p>",
-        unsafe_allow_html=True
+        """
+        ### About the Project
+
+        **Professional Pivot** is a smart career recommendation system designed to help
+        students make realistic and informed career decisions.
+
+        Many students depend only on resumes and CGPA, which often leads to a mismatch
+        between their skills and real industry expectations. This project bridges that gap
+        by analyzing:
+
+        - Academic background (Stream, Course & Department)
+        - CGPA and eligibility criteria
+        - Technical and core skills
+        - Interested job roles
+
+        Based on these inputs, the system recommends **best-fit companies** along with
+        **alternate career options**, helping students understand where they currently stand
+        and what improvements are required.
+
+        ### Key Highlights
+        - Realistic company recommendations
+        - Skill-based career guidance
+        - Student-friendly and interactive design
+        - Supports better career planning
+
+        This project aims to align **student potential with industry reality**.
+        """
     )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    st.button("🚀 Start Career Analysis", on_click=lambda: st.session_state.update(started=True))
 
 # -------------------------------------------------
 # MAIN APP
