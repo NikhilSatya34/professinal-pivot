@@ -51,6 +51,10 @@ if not st.session_state.started:
 
     header()
 
+    st.info(
+    "ℹ️ This platform evaluates career readiness, not job availability."
+    )
+
     st.markdown("""
     ## 🚀 About the Project
 
@@ -82,8 +86,6 @@ if not st.session_state.started:
 
     ## 🔍 Professional Pivot vs Job Portals
     """)
-
-    st.markdown("## 🔍 Professional Pivot vs Job Portals")
 
     col1, col2 = st.columns(2)
     
