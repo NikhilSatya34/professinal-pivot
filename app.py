@@ -17,18 +17,18 @@ if "started" not in st.session_state:
     st.session_state.started = False
 
 # -------------------------------------------------
-# HEADER
+# HEADER (USED IN BOTH INTRO & MAIN PAGE)
 # -------------------------------------------------
 def header(show_start_button=False):
-    col1, col2, col3 = st.columns([1.2, 7.3, 1.5])
+    col1, col2, col3 = st.columns([1.4, 7.1, 1.5])
 
     with col1:
-        st.image("fevicon_project.png", width=180)
+        st.image("fevicon_project.png", width=100)
 
     with col2:
         st.markdown(
             """
-            <div style="display:flex; flex-direction:column; justify-content:center; height:90px;">
+            <div style="display:flex; flex-direction:column; justify-content:center; height:100px;">
                 <h1 style="margin:0;">Professional Pivot</h1>
                 <p style="color:#94a3b8;font-size:18px;margin:4px 0 0 0;">
                     Resume → Skills → Reality
@@ -40,45 +40,39 @@ def header(show_start_button=False):
 
     with col3:
         if show_start_button:
-            if st.button("🚀 Start Career Analysis"):
+            if st.button("🚀 Start"):
                 st.session_state.started = True
                 st.rerun()
 
     st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
-
-
 
 # -------------------------------------------------
 # INTRO PAGE
 # -------------------------------------------------
 if not st.session_state.started:
 
-    header()
-
-    st.info(
-    "ℹ️ This platform evaluates career readiness, not job availability."
-    )
+    header(show_start_button=True)
 
     st.markdown("""
     ## 🚀 About the Project
 
-    **Professional Pivot** is a skill-driven career readiness and recommendation system.
-    Unlike job portals that simply list openings, this platform evaluates a student’s
+    **Professional Pivot** is a skill-driven career readiness system.
+    Unlike traditional job portals, this platform evaluates a student's
     **actual skill preparedness** before suggesting companies.
 
-    Many students rely only on CGPA and resumes, which often leads to unrealistic job
-    expectations and repeated rejections. Professional Pivot bridges this gap by
-    analyzing resume skills, calculating a **skill match percentage**, identifying
+    Students often rely only on CGPA and resumes, which leads to unrealistic
+    job expectations. Professional Pivot bridges this gap by analyzing
+    **resume skills**, calculating **skill match percentage**, identifying
     **skill gaps**, and recommending only **achievable company levels**.
 
     ---
 
     ## ⚙️ What This Project Does
-    ✔ Extracts skills from resume  
-    ✔ Calculates skill match percentage  
-    ✔ Displays matched skills & skill gaps  
-    ✔ Filters companies based on skill readiness  
-    ✔ Provides a realistic career direction  
+    - Extracts skills from resume
+    - Calculates skill match percentage
+    - Displays matched skills & skill gaps
+    - Filters companies based on skill readiness
+    - Provides realistic career guidance
 
     ---
 
@@ -92,7 +86,7 @@ if not st.session_state.started:
     """)
 
     col1, col2 = st.columns(2)
-    
+
     with col1:
         st.markdown("""
         ### 🌐 Job Searching Platforms
@@ -102,7 +96,7 @@ if not st.session_state.started:
         - No readiness feedback
         - May show unrealistic roles
         """)
-    
+
     with col2:
         st.markdown("""
         ### 🎓 Professional Pivot
@@ -112,53 +106,37 @@ if not st.session_state.started:
         - Clear skill gap feedback
         - Shows only realistic companies
         """)
-        
-    st.markdown("""
-    > **Job portals show opportunities.  
-    Professional Pivot shows readiness.**
-    """)
 
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    st.markdown(
-    """
-    <p style="text-align:center;color:#9ca3af;font-size:15px;">
-        Project developed by <b>B. Nikhil Satya</b><br>
-        Department of <b>CSD</b><br>
-        Annamacharya University
-    </p>
-    """,
-    unsafe_allow_html=True
+    st.warning(
+        "⚠️ Resume is the single source of truth. "
+        "If skills don’t match, the system will not force recommendations."
     )
 
+    st.markdown("---")
+
+    st.markdown(
+        """
+        <p style="text-align:center;color:#9ca3af;font-size:15px;">
+            Project developed by <b>B. Nikhil Satya</b><br>
+            Department of <b>CSD</b><br>
+            Annamacharya University
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
 
 # -------------------------------------------------
-# MAIN APPLICATION
+# MAIN PAGE
 # -------------------------------------------------
 else:
 
-    col1, col2, col3 = st.columns([1.2, 1, 7.8])
-    
-    with col1:
-        st.image("fevicon_project.png", width=80)
-    
-    with col2:
-        if st.button("⬅ Back"):
-            st.session_state.started = False
-            st.rerun()
-    
-    with col3:
-        st.markdown(
-            """
-            <div style="display:flex; flex-direction:column; justify-content:center; height:80px;">
-                <h1 style="margin:0;">Professional Pivot</h1>
-                <p style="color:#94a3b8;margin:0;">Resume → Skills → Reality</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    
-    st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
+    # HEADER MUST BE FIRST
+    header(show_start_button=False)
+
+    # Back button
+    if st.button("⬅ Back"):
+        st.session_state.started = False
+        st.rerun()
 
     # -------------------------------------------------
     # LOAD DATA
@@ -273,7 +251,9 @@ else:
             )
         )
 
-        pre_base["allowed_levels"] = pre_base["skill_match"].apply(allowed_company_levels)
+        pre_base["allowed_levels"] = pre_base["skill_match"].apply(
+            allowed_company_levels
+        )
 
         base = pre_base[
             pre_base.apply(
