@@ -17,7 +17,7 @@ if "started" not in st.session_state:
     st.session_state.started = False
 
 # -------------------------------------------------
-# COMMON HEADER (USED IN INTRO & MAIN PAGE)
+# HEADER
 # -------------------------------------------------
 def header():
     col1, col2 = st.columns([1, 10])
@@ -29,63 +29,87 @@ def header():
         st.markdown(
             """
             <h1 style="margin-bottom:0;">Professional Pivot</h1>
-            <p style="color:gray;font-size:18px;margin-top:0;">
+            <p style="color:#94a3b8;font-size:18px;margin-top:0;">
             Resume → Skills → Reality
             </p>
             """,
             unsafe_allow_html=True
         )
 
-     st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
 
 # -------------------------------------------------
 # INTRO PAGE
 # -------------------------------------------------
 if not st.session_state.started:
 
-    header()  # SAME POSITION AS MAIN PAGE TITLE
+    header()
 
-    st.markdown(
-        """
-        ### About the Project
+    st.markdown("""
+    ## 🚀 About the Project
 
-        **Professional Pivot** is a smart career recommendation system designed to help
-        students make realistic and informed career decisions.
+    **Professional Pivot** is a skill-driven career readiness and recommendation system.
+    Unlike job portals that simply list openings, this platform evaluates a student’s
+    **actual skill preparedness** before suggesting companies.
 
-        Many students depend only on resumes and CGPA, which often leads to a mismatch
-        between their skills and real industry expectations. This project bridges that gap
-        by analyzing:
+    Many students rely only on CGPA and resumes, which often leads to unrealistic job
+    expectations and repeated rejections. Professional Pivot bridges this gap by
+    analyzing resume skills, calculating a **skill match percentage**, identifying
+    **skill gaps**, and recommending only **achievable company levels**.
 
-        - Academic background (Stream, Course & Department)
-        - CGPA and eligibility criteria
-        - Technical and core skills
-        - Interested job roles
+    ---
 
-        Based on these inputs, the system recommends **best-fit companies** along with
-        **alternate career options**, helping students understand where they currently stand
-        and what improvements are required.
+    ## ⚙️ What This Project Does
+    ✔ Extracts skills from resume  
+    ✔ Calculates skill match percentage  
+    ✔ Displays matched skills & skill gaps  
+    ✔ Filters companies based on skill readiness  
+    ✔ Provides a realistic career direction  
 
-        ### Key Highlights
-        - Realistic company recommendations
-        - Skill-based career guidance
-        - Student-friendly and interactive design
-        - Supports better career planning
+    ---
 
-        This project aims to align **student potential with industry reality**.
-        """
-    )
+    ## 🔄 How It Works
+    **Resume → Skill Analysis → Skill % → Skill Gap →  
+    Skill-Based Company Filtering → Career Guidance**
+
+    ---
+
+    ## 🔍 Professional Pivot vs Job Portals
+    """)
+
+    st.table({
+        "Job Searching Platforms": [
+            "Focus on job listings",
+            "Same jobs for all users",
+            "Apply-first approach",
+            "No readiness feedback",
+            "May show unrealistic roles"
+        ],
+        "Professional Pivot": [
+            "Focus on career readiness",
+            "Personalized recommendations",
+            "Improve-first approach",
+            "Clear skill gap feedback",
+            "Shows only realistic companies"
+        ]
+    })
+
+    st.markdown("""
+    > **Job portals show opportunities.  
+    Professional Pivot shows readiness.**
+    """)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     st.button("🚀 Start Career Analysis", on_click=lambda: st.session_state.update(started=True))
 
 # -------------------------------------------------
-# MAIN APP
+# MAIN APPLICATION
 # -------------------------------------------------
 else:
 
-    # Back button + Header
     c1, c2 = st.columns([1, 9])
+
     with c1:
         if st.button("⬅ Back"):
             st.session_state.started = False
@@ -93,8 +117,10 @@ else:
 
     with c2:
         st.markdown(
-            "<h1 style='margin-bottom:0;'>🎓 Professional Pivot</h1>"
-            "<p style='color:#94a3b8;'>Resume → Skills → Reality</p>",
+            """
+            <h1 style="margin-bottom:0;">Professional Pivot</h1>
+            <p style="color:#94a3b8;">Resume → Skills → Reality</p>
+            """,
             unsafe_allow_html=True
         )
 
@@ -157,12 +183,30 @@ else:
     submit = st.button("🔍 Validate Profile")
 
     # -------------------------------------------------
+    # HELPER FUNCTIONS
+    # -------------------------------------------------
+    def skill_match(user, required):
+        if not user or not required:
+            return 0
+        return int(len(user & required) / len(required) * 100)
+
+    def allowed_company_levels(skill_pct):
+        if skill_pct >= 80:
+            return ["HIGH", "MID"]
+        elif skill_pct >= 60:
+            return ["MID"]
+        elif skill_pct >= 40:
+            return ["LOW"]
+        else:
+            return ["STARTUP", "LOW"]
+
+    # -------------------------------------------------
     # RESULTS
     # -------------------------------------------------
     if submit:
 
         if not resume:
-            st.warning("⚠️ Kindly Upload the Resume")
+            st.warning("⚠️ Kindly upload the resume")
             st.stop()
 
         resume_text = resume.read().decode(errors="ignore").lower()
@@ -175,52 +219,49 @@ else:
 
         user_skills = {s for s in all_skills if s in resume_text}
 
-        def skill_match(user, required):
-            if not user or not required:
-                return 0
-            return int(len(user & required) / len(required) * 100)
-
-        base = df[
+        pre_base = df[
             (df["stream"] == stream) &
             (df["course"] == course) &
             (df["department"] == department) &
             (df["job_role"] == role)
+        ].copy()
+
+        if pre_base.empty:
+            st.warning("No matching roles found.")
+            st.stop()
+
+        pre_base["skill_match"] = pre_base["required_skill"].apply(
+            lambda x: skill_match(
+                user_skills,
+                {s.strip().lower() for s in x.split(",")}
+            )
+        )
+
+        pre_base["allowed_levels"] = pre_base["skill_match"].apply(allowed_company_levels)
+
+        base = pre_base[
+            pre_base.apply(
+                lambda r: r["company_level"] in r["allowed_levels"],
+                axis=1
+            )
         ]
 
-        st.subheader("📊 Career Reality Check")
+        avg_skill = int(pre_base["skill_match"].mean())
 
-        if base.empty:
-            st.warning("No matching roles found for selected inputs.")
-            st.stop()
+        st.subheader("📊 Career Reality Check")
+        st.info(
+            f"Based on your **{avg_skill}% skill match**, "
+            f"we are showing **{', '.join(allowed_company_levels(avg_skill))} level companies**."
+        )
 
         cols = st.columns(2)
 
         for i, (_, row) in enumerate(base.iterrows()):
             required = {s.strip().lower() for s in row["required_skill"].split(",")}
-            match = skill_match(user_skills, required)
+            match = row["skill_match"]
 
-            skill_html = ""
-            for s in required:
-                if s in user_skills:
-                    mark, color = "✔", "#22c55e"
-                else:
-                    mark, color = "❌", "#ef4444"
-
-                skill_html += f"""
-                <span style="
-                    background:#1e293b;
-                    padding:6px 14px;
-                    border-radius:999px;
-                    margin:6px;
-                    display:inline-flex;
-                    align-items:center;
-                    gap:6px;
-                    color:white;
-                    font-size:13px;
-                ">
-                    <span style="color:{color};font-weight:bold;">{mark}</span>{s}
-                </span>
-                """
+            matched_skills = required & user_skills
+            skill_gap = required - user_skills
 
             with cols[i % 2]:
                 st.markdown(f"""
@@ -234,15 +275,17 @@ else:
                 ">
                     <h4>🏢 {row['company_name']}</h4>
                     <p>📍 {row['location']} | <b>{row['company_level']}</b></p>
-                    <p>🎯 <b>Selected Role:</b> {role} </p>
-                    <p><b>Skill Match:</b> {match}%</p>
-                    <b>Required Skills</b>
-                    <div style="
-                        display:flex;
-                        flex-wrap:wrap;
-                        gap:10px;
-                       margin-top:10px;
-                    ">
-                       {skill_html}
+                    <p><b>🎯 Skill Match:</b> {match}%</p>
                 </div>
                 """, unsafe_allow_html=True)
+
+                st.progress(match / 100)
+
+                st.markdown("#### ✅ Matched Skills")
+                st.write(", ".join(matched_skills) if matched_skills else "No matched skills")
+
+                st.markdown("#### ❌ Skill Gap (Skills to Improve)")
+                if skill_gap:
+                    st.write(", ".join(skill_gap))
+                else:
+                    st.success("🎉 No skill gap! You are industry ready.")
