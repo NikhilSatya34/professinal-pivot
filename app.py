@@ -19,19 +19,16 @@ if "started" not in st.session_state:
 # -------------------------------------------------
 # HEADER
 # -------------------------------------------------
-def header():
-    col1, col2 = st.columns([1.2, 8.8])
-    
+def header(show_start_button=False):
+    col1, col2, col3 = st.columns([1.2, 7.3, 1.5])
+
     with col1:
-        st.image(
-            "fevicon_project.png",
-            width=110  # 👈 zoomed & clear
-        )
-    
+        st.image("fevicon_project.png", width=150)
+
     with col2:
         st.markdown(
             """
-            <div style="display:flex; flex-direction:column; justify-content:center; height:110px;">
+            <div style="display:flex; flex-direction:column; justify-content:center; height:90px;">
                 <h1 style="margin:0;">Professional Pivot</h1>
                 <p style="color:#94a3b8;font-size:18px;margin:4px 0 0 0;">
                     Resume → Skills → Reality
@@ -40,8 +37,15 @@ def header():
             """,
             unsafe_allow_html=True
         )
-    
+
+    with col3:
+        if show_start_button:
+            if st.button("🚀 Start"):
+                st.session_state.started = True
+                st.rerun()
+
     st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
+
 
 
 # -------------------------------------------------
