@@ -20,23 +20,29 @@ if "started" not in st.session_state:
 # HEADER
 # -------------------------------------------------
 def header():
-    col1, col2 = st.columns([1, 10])
-
+    col1, col2 = st.columns([1.2, 8.8])
+    
     with col1:
-        st.image("fevicon_project.png", width=70)
-
+        st.image(
+            "fevicon_project.png",
+            width=110  # 👈 zoomed & clear
+        )
+    
     with col2:
         st.markdown(
             """
-            <h1 style="margin-bottom:0;">Professional Pivot</h1>
-            <p style="color:#94a3b8;font-size:18px;margin-top:0;">
-            Resume → Skills → Reality
-            </p>
+            <div style="display:flex; flex-direction:column; justify-content:center; height:110px;">
+                <h1 style="margin:0;">Professional Pivot</h1>
+                <p style="color:#94a3b8;font-size:18px;margin:4px 0 0 0;">
+                    Resume → Skills → Reality
+                </p>
+            </div>
             """,
             unsafe_allow_html=True
         )
-
+    
     st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
+
 
 # -------------------------------------------------
 # INTRO PAGE
@@ -102,6 +108,18 @@ if not st.session_state.started:
     st.markdown("<br>", unsafe_allow_html=True)
 
     st.button("🚀 Start Career Analysis", on_click=lambda: st.session_state.update(started=True))
+
+    st.markdown(
+    """
+    <p style="text-align:center;color:#9ca3af;font-size:15px;">
+        Project developed by <b>B. Nikhil Satya</b><br>
+        Department of <b>CSD</b><br>
+        Annamacharya University
+    </p>
+    """,
+    unsafe_allow_html=True
+    )
+
 
 # -------------------------------------------------
 # MAIN APPLICATION
