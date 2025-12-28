@@ -135,21 +135,28 @@ if not st.session_state.started:
 # -------------------------------------------------
 else:
 
-    c1, c2 = st.columns([1, 9])
-
-    with c1:
+    col1, col2, col3 = st.columns([1.2, 1, 7.8])
+    
+    with col1:
+        st.image("fevicon_project.png", width=80)
+    
+    with col2:
         if st.button("⬅ Back"):
             st.session_state.started = False
             st.rerun()
-
-    with c2:
+    
+    with col3:
         st.markdown(
             """
-            <h1 style="margin-bottom:0;">Professional Pivot</h1>
-            <p style="color:#94a3b8;">Resume → Skills → Reality</p>
+            <div style="display:flex; flex-direction:column; justify-content:center; height:80px;">
+                <h1 style="margin:0;">Professional Pivot</h1>
+                <p style="color:#94a3b8;margin:0;">Resume → Skills → Reality</p>
+            </div>
             """,
             unsafe_allow_html=True
         )
+    
+    st.markdown("<hr style='border:1px solid #1f2933;'>", unsafe_allow_html=True)
 
     # -------------------------------------------------
     # LOAD DATA
