@@ -83,23 +83,30 @@ if not st.session_state.started:
     ## 🔍 Professional Pivot vs Job Portals
     """)
 
-    st.table({
-        "Job Searching Platforms": [
-            "Focus on job listings",
-            "Same jobs for all users",
-            "Apply-first approach",
-            "No readiness feedback",
-            "May show unrealistic roles"
-        ],
-        "Professional Pivot": [
-            "Focus on career readiness",
-            "Personalized recommendations",
-            "Improve-first approach",
-            "Clear skill gap feedback",
-            "Shows only realistic companies"
-        ]
-    })
+    st.markdown("## 🔍 Professional Pivot vs Job Portals")
 
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("""
+        ### 🌐 Job Searching Platforms
+        - Focus on job listings
+        - Same jobs for all users
+        - Apply-first approach
+        - No readiness feedback
+        - May show unrealistic roles
+        """)
+    
+    with col2:
+        st.markdown("""
+        ### 🎓 Professional Pivot
+        - Focus on career readiness
+        - Personalized recommendations
+        - Improve-first approach
+        - Clear skill gap feedback
+        - Shows only realistic companies
+        """)
+        
     st.markdown("""
     > **Job portals show opportunities.  
     Professional Pivot shows readiness.**
