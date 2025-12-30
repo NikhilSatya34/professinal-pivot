@@ -97,7 +97,17 @@ else:
 
     # ---------- Stream ----------
     with col1:
-        stream = st.selectbox("Stream", sorted(df["stream"].unique()))
+        stream = st.selectbox(
+            "Stream",
+            sorted(df["stream"].unique()),
+            on_change=lambda: st.session_state.update(
+                stream_ok=False,
+                course_ok=False,
+                dept_ok=False,
+                role_ok=False
+            )
+        )
+
         if st.button("Confirm Stream"):
             st.session_state.stream_ok = True
             st.session_state.course_ok = False   # ### FIX
@@ -109,8 +119,14 @@ else:
         if st.session_state.stream_ok:
             course = st.selectbox(
                 "Course",
-                sorted(df[df["stream"] == stream]["course"].unique())
+                sorted(df[df["stream"] == stream]["course"].unique()),
+                on_change=lambda: st.session_state.update(
+                    course_ok=False,
+                    dept_ok=False,
+                    role_ok=False
+                )
             )
+
             if st.button("Confirm Course"):
                 st.session_state.course_ok = True
                 st.session_state.dept_ok = False   # ### FIX
@@ -126,11 +142,13 @@ else:
                         (df["stream"] == stream) &
                         (df["course"] == course)
                     ]["department"].unique()
+                ),
+                on_change=lambda: st.session_state.update(
+                    dept_ok=False,
+                    role_ok=False
                 )
             )
-            if st.button("Confirm Department"):
-                st.session_state.dept_ok = True
-                st.session_state.role_ok = False   # ### FIX
+
 
     # ---------- Job Role ----------
     with col4:
