@@ -10,7 +10,6 @@ st.set_page_config(
     page_icon="fevicon_project.png",
     layout="wide"
 )
-
 # -------------------------------------------------
 # SESSION STATE
 # -------------------------------------------------
