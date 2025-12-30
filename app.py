@@ -155,16 +155,23 @@ else:
         )
 
     with col4:
+        filtered_roles_df = df[
+            (df["stream"] == stream) &
+            (df["course"] == course) &
+            (df["department"] == department)
+        ].copy()
+        
+        # remove empty / irrelevant roles
+        filtered_roles_df = filtered_roles_df[
+            filtered_roles_df["job_role"].notna() &
+            (filtered_roles_df["job_role"].str.strip() != "")
+        ]
+        
         role = st.selectbox(
             "Job Role",
-            sorted(
-                df[
-                    (df["stream"] == stream) &
-                    (df["course"] == course) &
-                    (df["department"] == department)
-                ]["job_role"].unique()
-            )
+            sorted(filtered_roles_df["job_role"].unique())
         )
+
 
     resume = st.file_uploader(
         "📄 Upload Resume (Mandatory)",
