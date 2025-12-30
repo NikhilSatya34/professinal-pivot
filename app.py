@@ -16,6 +16,14 @@ st.set_page_config(
 # -------------------------------------------------
 if "started" not in st.session_state:
     st.session_state.started = False
+if "stream_ok" not in st.session_state:
+    st.session_state.stream_ok = False
+if "course_ok" not in st.session_state:
+    st.session_state.course_ok = False
+if "dept_ok" not in st.session_state:
+    st.session_state.dept_ok = False
+if "role_ok" not in st.session_state:
+    st.session_state.role_ok = False
 
 # -------------------------------------------------
 # LOAD DATA
@@ -135,49 +143,51 @@ else:
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        stream = st.selectbox("Stream", sorted(df["stream"].unique()))
+    stream = st.selectbox("Stream", sorted(df["stream"].unique()))
+    if st.button("Confirm Stream"):
+        st.session_state.stream_ok = True
 
     with col2:
+    if st.session_state.stream_ok:
         course = st.selectbox(
             "Course",
             sorted(df[df["stream"] == stream]["course"].unique())
         )
+        if st.button("Confirm Course"):
+            st.session_state.course_ok = True
+
 
     with col3:
-            dept_options = sorted(
-        df[
-            (df["stream"] == stream) &
-            (df["course"] == course)
-        ]["department"].unique()
-    )
-    
-    department = st.selectbox(
-        "Department",
-        ["Select Department"] + dept_options,
-        index=0
-    )
-    
-    if department == "Select Department":
-        st.stop()
+    if st.session_state.course_ok:
+        department = st.selectbox(
+            "Department",
+            sorted(
+                df[
+                    (df["stream"] == stream) &
+                    (df["course"] == course)
+                ]["department"].unique()
+            )
+        )
+        if st.button("Confirm Department"):
+            st.session_state.dept_ok = True
 
 
     with col4:
-        filtered_roles_df = df[
+    if st.session_state.dept_ok:
+        roles_df = df[
             (df["stream"] == stream) &
             (df["course"] == course) &
             (df["department"] == department)
-        ].copy()
-        
-        # remove empty / irrelevant roles
-        filtered_roles_df = filtered_roles_df[
-            filtered_roles_df["job_role"].notna() &
-            (filtered_roles_df["job_role"].str.strip() != "")
         ]
-        
+
         role = st.selectbox(
             "Job Role",
-            sorted(filtered_roles_df["job_role"].unique())
+            sorted(roles_df["job_role"].unique())
         )
+
+        if st.button("Confirm Role"):
+            st.session_state.role_ok = True
+
 
 
     resume = st.file_uploader(
@@ -185,7 +195,11 @@ else:
         type=["txt", "pdf", "docx"]
     )
 
-    submit = st.button("🔍 Validate Profile")
+    if st.session_state.role_ok:
+        submit = st.button("🔍 Validate Profile")
+    else:
+        st.info("Please confirm all selections above to proceed.")
+
 
     # -------------------------------------------------
     # RESULT LOGIC
