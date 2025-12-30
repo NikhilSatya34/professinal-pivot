@@ -142,50 +142,50 @@ else:
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-    stream = st.selectbox("Stream", sorted(df["stream"].unique()))
-    if st.button("Confirm Stream"):
-        st.session_state.stream_ok = True
+        stream = st.selectbox("Stream", sorted(df["stream"].unique()))
+        if st.button("Confirm Stream"):
+            st.session_state.stream_ok = True
 
     with col2:
-    if st.session_state.stream_ok:
-        course = st.selectbox(
-            "Course",
-            sorted(df[df["stream"] == stream]["course"].unique())
-        )
-        if st.button("Confirm Course"):
-            st.session_state.course_ok = True
+        if st.session_state.stream_ok:
+            course = st.selectbox(
+                "Course",
+                sorted(df[df["stream"] == stream]["course"].unique())
+            )
+            if st.button("Confirm Course"):
+                st.session_state.course_ok = True
 
 
     with col3:
-    if st.session_state.course_ok:
-        department = st.selectbox(
-            "Department",
-            sorted(
-                df[
-                    (df["stream"] == stream) &
-                    (df["course"] == course)
-                ]["department"].unique()
+        if st.session_state.course_ok:
+            department = st.selectbox(
+                "Department",
+                sorted(
+                    df[
+                        (df["stream"] == stream) &
+                        (df["course"] == course)
+                    ]["department"].unique()
+                )
             )
-        )
-        if st.button("Confirm Department"):
-            st.session_state.dept_ok = True
+            if st.button("Confirm Department"):
+                st.session_state.dept_ok = True
 
 
     with col4:
-    if st.session_state.dept_ok:
-        roles_df = df[
-            (df["stream"] == stream) &
-            (df["course"] == course) &
-            (df["department"] == department)
-        ]
-
-        role = st.selectbox(
-            "Job Role",
-            sorted(roles_df["job_role"].unique())
-        )
-
-        if st.button("Confirm Role"):
-            st.session_state.role_ok = True
+        if st.session_state.dept_ok:
+            roles_df = df[
+                (df["stream"] == stream) &
+                (df["course"] == course) &
+                (df["department"] == department)
+            ]
+    
+            role = st.selectbox(
+                "Job Role",
+                sorted(roles_df["job_role"].unique())
+            )
+    
+            if st.button("Confirm Role"):
+                st.session_state.role_ok = True
 
 
 
