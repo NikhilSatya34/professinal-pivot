@@ -134,20 +134,20 @@ else:
 
     # ---------- Department ----------
     with col3:
+        department = st.selectbox(
+            "Department",
+            sorted(
+                df[
+                    (df["stream"] == stream) &
+                    (df["course"] == course)
+                ]["department"].unique()
+            ),
+            disabled=not st.session_state.course_ok
+        )
+    
         if st.session_state.course_ok:
-            department = st.selectbox(
-                "Department",
-                sorted(
-                    df[
-                        (df["stream"] == stream) &
-                        (df["course"] == course)
-                    ]["department"].unique()
-                ),
-                on_change=lambda: st.session_state.update(
-                    dept_ok=False,
-                    role_ok=False
-                )
-            )
+            if st.button("Confirm Department"):
+                st.session_state.dept_ok = True
 
 
     # ---------- Job Role ----------
